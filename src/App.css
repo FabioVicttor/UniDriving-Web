@@ -1,38 +1,64 @@
-.App {
-  text-align: center;
+body {
+  margin: 0;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.App-background {
+  background-color: #3498db;
+  /* background: radial-gradient(at center, #3498db, #9b59b6); */
+  /* background: linear-gradient(30deg, #845EC2, #D65DB1,#FF6F91,#FF9671,#FFC75F,#F9F871); */
+  /* background: linear-gradient(30deg, #845EC2, #2C73D2,#0081CF,#0089BA,#008E9B,#008F7A); */
+  /* background: linear-gradient(30deg, #845EC2, #4FFBDF,#00C2A8,#008B74); */
+  /* background: linear-gradient(30deg, #845ec2, #009efa, #00d2fc, #4ffbdf); */
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  font-family: "DejaVu Sans", "Arial", sans-serif;
+  font-size: 12px;
 }
 
-.App-link {
-  color: #61dafb;
+.DivLogo {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 2%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.linha {
+  width: 30%;
+  border: 1px solid #2c73d2;
+  margin: 2%;
+}
+
+.Div_Login {
+  display: "flex";
+  align-items: center;
+  justify-content: center;
+}
+
+@font-face {
+  font-family: "DejaVu Sans";
+  src: url("https://kendo.cdn.telerik.com/2017.2.621/styles/fonts/DejaVu/DejaVuSans.ttf")
+    format("truetype");
+}
+
+@font-face {
+  font-family: "DejaVu Sans";
+  font-weight: bold;
+  src: url("https://kendo.cdn.telerik.com/2017.2.621/styles/fonts/DejaVu/DejaVuSans-Bold.ttf")
+    format("truetype");
+}
+
+@font-face {
+  font-family: "DejaVu Sans";
+  font-style: italic;
+  src: url("https://kendo.cdn.telerik.com/2017.2.621/styles/fonts/DejaVu/DejaVuSans-Oblique.ttf")
+    format("truetype");
+}
+
+@font-face {
+  font-family: "DejaVu Sans";
+  font-weight: bold;
+  font-style: italic;
+  src: url("https://kendo.cdn.telerik.com/2017.2.621/styles/fonts/DejaVu/DejaVuSans-Oblique.ttf")
+    format("truetype");
 }
