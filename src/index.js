@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import * as serviceWorker from './serviceWorker';
+
+import './styles/App.css';
+import '@progress/kendo-theme-default/dist/all.css';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -9,5 +11,3 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 );
-
-serviceWorker.unregister();
