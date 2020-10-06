@@ -1,22 +1,9 @@
-import React, { Component } from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useRouteMatch,
-  useParams
-} from "react-router-dom";
-import ReactDOM from 'react-dom';
-import '../../App.css';
+import React from 'react';
 import { Card, Img_Logo } from "./style"
-import Logo1 from '../../Logo1.png'
+import Logo1 from '../../assets/Logo1.png';
 
 import { FloatingLabel } from '@progress/kendo-react-labels';
 import { Input } from '@progress/kendo-react-inputs';
-import { Button } from '@progress/kendo-react-buttons';
-
-import '@progress/kendo-theme-default/dist/all.css';
 
 export default function Cadastro() {
   const [nome, setNome] = React.useState();

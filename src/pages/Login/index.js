@@ -1,36 +1,25 @@
-import React, { Component } from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useRouteMatch,
-  useParams
-} from "react-router-dom";
-import ReactDOM from 'react-dom';
-import '../../App.css';
-import { Card, Img_Logo } from "./style"
+import React, { useState } from 'react';
+import { Link } from "react-router-dom";
+import { Card, ImgLogo } from "./style"
 
 import { FloatingLabel } from '@progress/kendo-react-labels';
 import { Input } from '@progress/kendo-react-inputs';
 import { Button } from '@progress/kendo-react-buttons';
 
-import Logo1 from '../../Logo1.png'
+import Logo1 from '../../assets/Logo1.png';
 
 import '@progress/kendo-theme-default/dist/all.css';
 
 export default function Login() {
 
-  const [email, setEmail] = React.useState();
-
-  const [senha, setSenha] = React.useState();
+  const [email, setEmail] = useState();
+  const [senha, setSenha] = useState();
 
   return (
-
     <Card>
       <div>
         <div className="DivLogo">
-          <Img_Logo src={Logo1} />
+          <ImgLogo src={Logo1} />
         </div>
 
         <div style={{ padding: "5%" }}>
@@ -84,8 +73,8 @@ export default function Login() {
 
             </div>
             <div style={{ display: "flex", justifyContent: "space-evenly", padding: "2%", marginTop: "5%" }}>
-              <Button ><span style={{ padding: "2%", color: "#3b5998" }} class="k-icon k-i-facebook-box"></span> Facebook </Button>
-              <Button ><span style={{ padding: "2%", color: "#db4a39" }} class="k-icon k-i-google-box"></span> Google </Button>
+              <Button ><span style={{ padding: "2%", color: "#3b5998" }} className="k-icon k-i-facebook-box"></span> Facebook </Button>
+              <Button ><span style={{ padding: "2%", color: "#db4a39" }} className="k-icon k-i-google-box"></span> Google </Button>
             </div>
           </div>
 
