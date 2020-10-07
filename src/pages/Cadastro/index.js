@@ -113,7 +113,7 @@ export default function Cadastro() {
 //Validação e-mail - ini
 const emailRegex = new RegExp(/\S+@\S+\.\S+/);
 const emailValidator = (value) =>
-  emailRegex.test(value) ? "" : "Please enter a valid email.";
+  emailRegex.test(value) ? "" : "Por favor, informe um e-mail válido.";
 const EmailInput = (fieldRenderProps) => {
   const { validationMessage, visited, ...others } = fieldRenderProps;
   return (
