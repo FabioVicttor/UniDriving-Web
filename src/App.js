@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
 import {
   BrowserRouter as Router,
   Switch,
@@ -7,23 +7,19 @@ import {
   Link,
   Redirect,
   useLocation,
-  useParams
+  useParams,
 } from "react-router-dom";
 
-import {
-  TransitionGroup,
-  CSSTransition
-} from "react-transition-group";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 import Login from "./pages/Login/index";
 import Cadastro from "./pages/Cadastro";
+import CadastroSenha from "./pages/CadastroSenha";
+import RecuperarSenha from "./pages/RecuperarSenha";
 
-import { Input } from '@progress/kendo-react-inputs';
+import "@progress/kendo-theme-default/dist/all.css";
 
-import '@progress/kendo-theme-default/dist/all.css';
-
-function App() {
-
+export default function App() {
   return (
     <div>
       <Router>
@@ -37,21 +33,22 @@ function AppAnimation() {
   let location = useLocation();
   return (
     <TransitionGroup className="App-background">
-      <CSSTransition
-        key={location.key}
-        classNames="fade-enter"
-        timeout={300}
-      >
+      <CSSTransition key={location.key} classNames="fade-enter" timeout={300}>
         <Switch location={location}>
-          <Route exact path='/'>
+          <Route exact path="/">
             <Login />
           </Route>
-          <Route path='/cadastro'>
+          <Route path="/cadastro">
             <Cadastro />
+          </Route>
+          <Route path="/CadastroSenha">
+            <CadastroSenha />
+          </Route>
+          <Route path="/RecuperarSenha">
+            <RecuperarSenha />
           </Route>
         </Switch>
       </CSSTransition>
     </TransitionGroup>
   );
 }
-export default App;

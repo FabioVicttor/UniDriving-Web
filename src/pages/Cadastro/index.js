@@ -1,30 +1,18 @@
-import React, { Component } from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useRouteMatch,
-  useParams
-} from "react-router-dom";
-import ReactDOM from 'react-dom';
-import '../../App.css';
-import { Card, Img_Logo } from "./style"
-import Logo1 from '../../Logo1.png'
+import React from "react";
+import { BrowserRouter as Router, Link } from "react-router-dom";
+import "../../App.css";
+import { Card, Img_Logo } from "./style";
+import Logo1 from "../../Logo1.png";
 
-import { FloatingLabel } from '@progress/kendo-react-labels';
-import { Input } from '@progress/kendo-react-inputs';
-import { Button } from '@progress/kendo-react-buttons';
+import { Form, Field, FormElement } from "@progress/kendo-react-form";
+import { Error } from "@progress/kendo-react-labels";
+import { Input } from "@progress/kendo-react-inputs";
+import { Button } from "@progress/kendo-react-buttons";
 
-import '@progress/kendo-theme-default/dist/all.css';
+
 
 export default function Cadastro() {
-  const [nome, setNome] = React.useState();
-  const [cpf, setCpf] = React.useState();
-  const [cnh, setCnh] = React.useState();
-  const [email, setEmail] = React.useState();
-  const [celular, setCelular] = React.useState();
-  const [universidade, setUniversidade] = React.useState();
+  const handleSubmit = (dataItem) => alert(JSON.stringify(dataItem, null, 2));
 
   return (
     <Card>
@@ -33,88 +21,106 @@ export default function Cadastro() {
           <Img_Logo src={Logo1} />
         </div>
 
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
           <h1>Cadastro</h1>
         </div>
 
         <div style={{ padding: "5%" }}>
-          <div>
-            <div style={{ display: "flex", justifyContent: "space-around" }}>
-              <div >
-                <div style={{ display: "flex", alignItems: "center" }}>
-                  <FloatingLabel label={'Nome Completo:'} editorId={'Nome Completo'} editorValue={nome} style={{ width: "100%" }}>
-                    <Input
-                      style={{ borderTop: "none", borderLeft: "none", borderRight: "none" }}
-                      id={'Nome Completo'}
-                      value={nome}
-                      onChange={(e) => setNome(e.nome)}
-                    />
-                  </FloatingLabel>
-                </div>
+          <Form
+            onSubmit={handleSubmit}
+            render={(formRenderProps) => (
+              <FormElement style={{ maxWidth: 650 }}>
+                <fieldset className={"k-form-fieldset"}>
+                  <div
+                    style={{ display: "flex", justifyContent: "space-around" }}
+                  >
+                    <div>
+                      <div className="mb-3">
+                        <Field
+                          name={"nome"}
+                          component={Input}
+                          label={"Nome Completo:"}
+                        />
+                      </div>
 
-                <div style={{ display: "flex", alignItems: "center" }}>
-                  <FloatingLabel label={'CPF:'} editorId={'CPF'} editorValue={cpf} style={{ width: "100%" }}>
-                    <Input
-                      style={{ borderTop: "none", borderLeft: "none", borderRight: "none" }}
-                      id={'CPF'}
-                      value={cpf}
-                      onChange={(e) => setCpf(e.cpf)}
-                    />
-                  </FloatingLabel>
-                </div>
+                      <div className="mb-3">
+                        <Field name={"CPF"} component={Input} label={"CPF:"} />
+                      </div>
 
-                <div style={{ display: "flex", alignItems: "center" }}>
-                  <FloatingLabel label={'CNH:'} editorId={'CNH'} editorValue={cnh} style={{ width: "100%" }}>
-                    <Input
-                      style={{ borderTop: "none", borderLeft: "none", borderRight: "none" }}
-                      id={'CNH'}
-                      value={cnh}
-                      onChange={(e) => setCnh(e.cnh)}
-                    />
-                  </FloatingLabel>
-                </div>
-              </div>
+                      <div className="mb-3">
+                        <Field name={"CNH"} component={Input} label={"CNH:"} />
+                      </div>
+                    </div>
 
-              <div>
-                <div style={{ display: "flex", alignItems: "center" }}>
-                  <FloatingLabel label={'E-Mail:'} editorId={'E-Mail'} editorValue={email} style={{ width: "100%" }}>
-                    <Input
-                      style={{ borderTop: "none", borderLeft: "none", borderRight: "none" }}
-                      id={'E-Mail'}
-                      value={email}
-                      onChange={(e) => setEmail(e.email)}
-                    />
-                  </FloatingLabel>
-                </div>
+                    <div>
+                      <div className="mb-3">
+                        <Field
+                          name={"email"}
+                          type={"email"}
+                          component={EmailInput}
+                          label={"E-mail:"}
+                          validator={emailValidator}
+                        />
+                      </div>
 
-                <div style={{ display: "flex", alignItems: "center" }}>
-                  <FloatingLabel label={'Celular:'} editorId={'Celular'} editorValue={celular} style={{ width: "100%" }}>
-                    <Input
-                      style={{ borderTop: "none", borderLeft: "none", borderRight: "none" }}
-                      id={'Celular'}
-                      value={celular}
-                      onChange={(e) => setCelular(e.celular)}
-                    />
-                  </FloatingLabel>
+                      <div className="mb-3">
+                        <Field
+                          name={"Celular"}
+                          component={Input}
+                          label={"Celular:"}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    marginTop: "5%",
+                  }}
+                >
+                  <Button
+                    type={"submit"}
+                    disabled={!formRenderProps.allowSubmit}
+                    primary={true}
+                    style={{
+                      backgroundColor: "#2C73D2",
+                      borderColor: "#2C73D2",
+                      width: "45%",
+                      fontWeight: "bold",
+                    }}
+                  >
+                    <Link to="/CadastroSenha">Avançar</Link>
+                  </Button>
                 </div>
-
-                <div style={{ display: "flex", alignItems: "center" }}>
-                  <FloatingLabel label={'Univerisade:'} editorId={'Univerisade'} editorValue={universidade} style={{ width: "100%" }}>
-                    <Input
-                      style={{ borderTop: "none", borderLeft: "none", borderRight: "none" }}
-                      id={'Universidade'}
-                      value={universidade}
-                      onChange={(e) => setUniversidade(e.universidade)}
-                    />
-                  </FloatingLabel>
-                </div>
-              </div>
-            </div>
-          </div>
+              </FormElement>
+            )}
+          />
         </div>
       </div>
     </Card>
   );
 }
 
-
+//Validação e-mail - ini
+const emailRegex = new RegExp(/\S+@\S+\.\S+/);
+const emailValidator = (value) =>
+  emailRegex.test(value) ? "" : "Please enter a valid email.";
+const EmailInput = (fieldRenderProps) => {
+  const { validationMessage, visited, ...others } = fieldRenderProps;
+  return (
+    <div>
+      <Input {...others} />
+      {visited && validationMessage && <Error>{validationMessage}</Error>}
+    </div>
+  );
+};
+//Validação e-mail - fim
