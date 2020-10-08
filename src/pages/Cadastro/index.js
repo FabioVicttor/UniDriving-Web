@@ -35,7 +35,7 @@ export default function Cadastro() {
           <Form
             onSubmit={handleSubmit}
             render={(formRenderProps) => (
-              <FormElement style={{ maxWidth: 650 }}>
+              <FormElement>
                 <fieldset className={"k-form-fieldset"}>
                   <div
                     style={{ display: "flex", justifyContent: "space-around" }}
@@ -110,7 +110,7 @@ export default function Cadastro() {
   );
 }
 
-//Validação e-mail - ini
+//Validação e-mail - Inicio
 const emailRegex = new RegExp(/\S+@\S+\.\S+/);
 const emailValidator = (value) =>
   emailRegex.test(value) ? "" : "Por favor, informe um e-mail válido.";
@@ -123,4 +123,4 @@ const EmailInput = (fieldRenderProps) => {
     </div>
   );
 };
-//Validação e-mail - fim
+//Validação e-mail - Fim

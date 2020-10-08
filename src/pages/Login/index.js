@@ -188,7 +188,7 @@ export default function Login() {
   );
 }
 
-//Validação e-mail - ini
+//Validação e-mail - Inicio
 const emailRegex = new RegExp(/\S+@\S+\.\S+/);
 const emailValidator = (value) =>
   emailRegex.test(value) ? "" : "Por favor, informe um e-mail válido.";
@@ -201,4 +201,4 @@ const EmailInput = (fieldRenderProps) => {
     </div>
   );
 };
-//Validação e-mail - fim
+//Validação e-mail - Fim
