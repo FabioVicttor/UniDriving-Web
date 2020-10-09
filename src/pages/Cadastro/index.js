@@ -1,5 +1,4 @@
 import React, { useCallback } from "react";
-import { Link } from "react-router-dom";
 import { Form, Field, FormElement } from "@progress/kendo-react-form";
 import { Error } from "@progress/kendo-react-labels";
 import { Input } from "@progress/kendo-react-inputs";
@@ -7,11 +6,11 @@ import { Button } from "@progress/kendo-react-buttons";
 
 import api from '../../services/api';
 
-import Logo1 from "../../Logo1.png";
+import Logo1 from "../../assets/Logo1.png";
 
 import "./style.css";
 
-import { Card, Img_Logo } from "./style";
+import { Card, ImgLogo } from "./style";
 
 export default function Cadastro() {
   const handleSubmit = useCallback(async (dataItem) => {
@@ -25,7 +24,7 @@ export default function Cadastro() {
       <Card>
         <div style={{ width: "100%" }}>
           <div className="DivLogo">
-            <Img_Logo src={Logo1} />
+            <ImgLogo src={Logo1} />
           </div>
 
           <div

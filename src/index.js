@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 
-import "./App.css";
-import "@progress/kendo-theme-default/dist/all.css";
+import "./styles/App.css";
+import "@progress/kendo-theme-material";
 
 ReactDOM.render(
   <React.StrictMode>
