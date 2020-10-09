@@ -1,5 +1,7 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
+
+import Route from './Route';
 
 import Login from '../pages/Login';
 import Cadastro from '../pages/Cadastro';
@@ -12,7 +14,7 @@ function Routes() {
       <Route exact path="/" component={Login} />
       <Route path="/cadastro" component={Cadastro} />
       <Route path="/recuperar_senha" component={RecuperarSenha}/>
-      <Route path="/home" component={Home} />
+      <Route path="/home" component={Home} isPrivate/>
     </Switch>
   )
 };
