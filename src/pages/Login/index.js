@@ -3,14 +3,14 @@ import { Link } from "react-router-dom";
 
 import { useAuth } from '../../hooks/auth';
 
-import Logo1 from "../../Logo1.png";
+import Logo1 from "../../assets/Logo1.png";
 
 import { Form, Field, FormElement } from "@progress/kendo-react-form";
 import { Error } from "@progress/kendo-react-labels";
 import { Input } from "@progress/kendo-react-inputs";
 import { Button } from "@progress/kendo-react-buttons";
 
-import { Card, Img_Logo } from "./style";
+import { Card, ImgLogo } from "./style";
 
 export default function Login() {
   const { signIn } = useAuth();
@@ -24,7 +24,7 @@ export default function Login() {
       <Card>
         <div>
           <div className="DivLogo">
-            <Img_Logo src={Logo1} />
+            <ImgLogo src={Logo1} />
           </div>
           <div style={{ padding: "5%" }}>
             <Form

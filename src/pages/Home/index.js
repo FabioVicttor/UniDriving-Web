@@ -1,19 +1,16 @@
 import React from "react";
-import { BrowserRouter as Router, Link } from "react-router-dom";
-import "../../App.css";
-import { Card, Img_Logo } from "./style";
-import Logo1 from "../../Logo1.png";
-
 import { Button } from "@progress/kendo-react-buttons";
 
-import "@progress/kendo-theme-material";
+import Logo1 from "../../assets/Logo1.png";
+
+import { ImgLogo } from "./style";
 
 export default function Home() {
   return (
     <div>
       <div style={{ display: "flex" }}>
         <div>
-          <Img_Logo src={Logo1} />
+          <ImgLogo src={Logo1} />
         </div>
         <div>Meus Anúncios</div>
         <div>Chat</div>
