@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Link } from "react-router-dom";
 import "../../App.css";
+import "./style.css";
 import { Card, Img_Logo } from "./style";
 import Logo1 from "../../Logo1.png";
 
@@ -9,104 +10,110 @@ import { Error } from "@progress/kendo-react-labels";
 import { Input } from "@progress/kendo-react-inputs";
 import { Button } from "@progress/kendo-react-buttons";
 
-
-
 export default function Cadastro() {
   const handleSubmit = (dataItem) => alert(JSON.stringify(dataItem, null, 2));
 
   return (
-    <Card>
-      <div style={{ width: "100%" }}>
-        <div className="DivLogo">
-          <Img_Logo src={Logo1} />
-        </div>
+    <div className="App-background">
+      <Card>
+        <div style={{ width: "100%" }}>
+          <div className="DivLogo">
+            <Img_Logo src={Logo1} />
+          </div>
 
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <h1>Cadastro</h1>
-        </div>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <h1>Cadastro</h1>
+          </div>
 
-        <div style={{ padding: "5%" }}>
-          <Form
-            onSubmit={handleSubmit}
-            render={(formRenderProps) => (
-              <FormElement>
-                <fieldset className={"k-form-fieldset"}>
+          <div style={{ padding: "5%" }}>
+            <Form
+              onSubmit={handleSubmit}
+              render={(formRenderProps) => (
+                <FormElement>
+                  <fieldset className={"k-form-fieldset"}>
+                    <div className={"form_cadastro"}>
+                      <div>
+                        <div className="mb-3">
+                          <Field
+                            name={"nome"}
+                            component={Input}
+                            label={"Nome Completo:"}
+                          />
+                        </div>
+
+                        <div className="mb-3">
+                          <Field
+                            name={"CPF"}
+                            component={Input}
+                            label={"CPF:"}
+                          />
+                        </div>
+
+                        <div className="mb-3">
+                          <Field
+                            name={"CNH"}
+                            component={Input}
+                            label={"CNH:"}
+                          />
+                        </div>
+                      </div>
+
+                      <div>
+                        <div className="mb-3">
+                          <Field
+                            name={"email"}
+                            type={"email"}
+                            component={EmailInput}
+                            label={"E-mail:"}
+                            validator={emailValidator}
+                          />
+                        </div>
+
+                        <div className="mb-3">
+                          <Field
+                            name={"Celular"}
+                            component={Input}
+                            label={"Celular:"}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
                   <div
-                    style={{ display: "flex", justifyContent: "space-around" }}
-                  >
-                    <div>
-                      <div className="mb-3">
-                        <Field
-                          name={"nome"}
-                          component={Input}
-                          label={"Nome Completo:"}
-                        />
-                      </div>
-
-                      <div className="mb-3">
-                        <Field name={"CPF"} component={Input} label={"CPF:"} />
-                      </div>
-
-                      <div className="mb-3">
-                        <Field name={"CNH"} component={Input} label={"CNH:"} />
-                      </div>
-                    </div>
-
-                    <div>
-                      <div className="mb-3">
-                        <Field
-                          name={"email"}
-                          type={"email"}
-                          component={EmailInput}
-                          label={"E-mail:"}
-                          validator={emailValidator}
-                        />
-                      </div>
-
-                      <div className="mb-3">
-                        <Field
-                          name={"Celular"}
-                          component={Input}
-                          label={"Celular:"}
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </fieldset>
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    marginTop: "5%",
-                  }}
-                >
-                  <Button
-                    type={"submit"}
-                    disabled={!formRenderProps.allowSubmit}
-                    primary={true}
                     style={{
-                      backgroundColor: "#2C73D2",
-                      borderColor: "#2C73D2",
-                      width: "45%",
-                      fontWeight: "bold",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      marginTop: "5%",
                     }}
                   >
-                    <Link to="/CadastroSenha">Avançar</Link>
-                  </Button>
-                </div>
-              </FormElement>
-            )}
-          />
+                    <Button
+                      type={"submit"}
+                      disabled={!formRenderProps.allowSubmit}
+                      primary={true}
+                      style={{
+                        backgroundColor: "#2C73D2",
+                        borderColor: "#2C73D2",
+                        width: "45%",
+                        fontWeight: "bold",
+                      }}
+                    >
+                      <Link to="/CadastroSenha">Avançar</Link>
+                    </Button>
+                  </div>
+                </FormElement>
+              )}
+            />
+          </div>
         </div>
-      </div>
-    </Card>
+      </Card>
+    </div>
   );
 }
 

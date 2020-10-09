@@ -6,22 +6,24 @@ import Logo1 from "../../Logo1.png";
 
 export default function RecuperarSenha() {
   return (
-    <Card>
-      <div style={{ width: "100%" }}>
-        <div className="DivLogo">
-          <Img_Logo src={Logo1} />
-        </div>
+    <div className="App-background">
+      <Card>
+        <div style={{ width: "100%" }}>
+          <div className="DivLogo">
+            <Img_Logo src={Logo1} />
+          </div>
 
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <h1>Recuperar Senha</h1>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <h1>Recuperar Senha</h1>
+          </div>
         </div>
-      </div>
-    </Card>
+      </Card>
+    </div>
   );
 }

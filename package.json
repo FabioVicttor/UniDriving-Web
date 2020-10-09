@@ -16,6 +16,7 @@
     "@progress/kendo-react-inputs": "^3.16.0",
     "@progress/kendo-react-intl": "^3.16.0",
     "@progress/kendo-theme-default": "^4.22.0",
+    "@progress/kendo-theme-material": "^3.19.2",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",

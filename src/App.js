@@ -16,6 +16,7 @@ import Login from "./pages/Login/index";
 import Cadastro from "./pages/Cadastro";
 import CadastroSenha from "./pages/CadastroSenha";
 import RecuperarSenha from "./pages/RecuperarSenha";
+import Home from "./pages/Home";
 
 import "@progress/kendo-theme-default/dist/all.css";
 
@@ -32,11 +33,14 @@ export default function App() {
 function AppAnimation() {
   let location = useLocation();
   return (
-    <TransitionGroup className="App-background">
+    <TransitionGroup >
       <CSSTransition key={location.key} classNames="fade-enter" timeout={300}>
         <Switch location={location}>
           <Route exact path="/">
             <Login />
+          </Route>
+          <Route path="/Home">
+            <Home  />
           </Route>
           <Route path="/cadastro">
             <Cadastro />
