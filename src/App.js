@@ -1,14 +1,12 @@
-import React, { Component } from "react";
-import "./App.css";
+import React from "react";
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
-  Redirect,
   useLocation,
-  useParams,
 } from "react-router-dom";
+
+import AppProvider from './hooks';
 
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
@@ -18,15 +16,13 @@ import CadastroSenha from "./pages/CadastroSenha";
 import RecuperarSenha from "./pages/RecuperarSenha";
 import Home from "./pages/Home";
 
-import "@progress/kendo-theme-default/dist/all.css";
-
 export default function App() {
   return (
-    <div>
-      <Router>
+    <Router>
+      <AppProvider>
         <AppAnimation />
-      </Router>
-    </div>
+      </AppProvider>
+    </Router>
   );
 }
 
