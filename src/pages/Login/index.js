@@ -1,18 +1,23 @@
-import React from "react";
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import React, { useCallback } from "react";
+import { Link } from "react-router-dom";
 
-import "../../App.css";
-import { Card, Img_Logo } from "./style";
+import { useAuth } from '../../hooks/auth';
+
+import Logo1 from "../../Logo1.png";
 
 import { Form, Field, FormElement } from "@progress/kendo-react-form";
 import { Error } from "@progress/kendo-react-labels";
 import { Input } from "@progress/kendo-react-inputs";
 import { Button } from "@progress/kendo-react-buttons";
 
-import Logo1 from "../../Logo1.png";
+import { Card, Img_Logo } from "./style";
 
 export default function Login() {
-  const handleSubmit = (dataItem) => alert(JSON.stringify(dataItem, null, 2));
+  const { signIn } = useAuth();
+
+  const handleSubmit = useCallback((dataItem) => {
+    signIn(dataItem);
+  }, [signIn]);
 
   return (
     <div className="App-background">
@@ -40,7 +45,7 @@ export default function Login() {
 
                       <div className="mb-3">
                         <Field
-                          name={"Senha"}
+                          name={"password"}
                           component={Input}
                           label={"Senha:"}
                           type="password"
@@ -76,7 +81,7 @@ export default function Login() {
                           fontWeight: "bold",
                         }}
                       >
-                        <Link to="/Home">Entrar</Link>
+                        Entrar
                       </Button>
                     </div>
                   </div>

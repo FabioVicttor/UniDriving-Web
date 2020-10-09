@@ -1435,6 +1435,14 @@
     "@progress/kendo-react-popup" "3.17.0"
     prop-types "^15.6.0"
 
+"@progress/kendo-react-form@^3.17.0":
+  version "3.17.0"
+  resolved "https://registry.yarnpkg.com/@progress/kendo-react-form/-/kendo-react-form-3.17.0.tgz#de4c0b3ea7af45c49db375bc2c4c165149f5095b"
+  integrity sha512-x3ibz9MAqyJpVPYDOvjmyQgFmghBjbBH25gb8CXZ2dZ161ZteJLJKIgn+G0FhlIYe8+h10vFqevvUG1QVL011A==
+  dependencies:
+    "@progress/kendo-react-common" "3.17.0"
+    prop-types "^15.6.0"
+
 "@progress/kendo-react-grid@^3.16.0":
   version "3.17.0"
   resolved "https://registry.yarnpkg.com/@progress/kendo-react-grid/-/kendo-react-grid-3.17.0.tgz#ac1d8952f570e5207967501347ba80c7103af993"
@@ -1482,6 +1490,11 @@
   version "4.23.0"
   resolved "https://registry.yarnpkg.com/@progress/kendo-theme-default/-/kendo-theme-default-4.23.0.tgz#d29432cbc1b841df8cd615ce7e309575a3ae7535"
   integrity sha512-mN5usnufsDcPQqZ6UbYTXpdvKIeUoT1tIRdbT68+lri2w8ckCIWcdNsAigJbJgbUweW2mYgoRGepYmjGoNCnAw==
+
+"@progress/kendo-theme-material@^3.19.2":
+  version "3.19.2"
+  resolved "https://registry.yarnpkg.com/@progress/kendo-theme-material/-/kendo-theme-material-3.19.2.tgz#4c4d98cf595eeed8ab32a70a49054680e419c094"
+  integrity sha512-5j+tdUWFISiSTZeArixNTPFY3usFQnqVjcA/E+rY1nhaes6dr4j9hm0cIEgijWRQIPDQYlS4ciJzERISLgvG3A==
 
 "@progress/pako-esm@^1.0.1":
   version "1.0.1"

@@ -1,17 +1,24 @@
-import React from "react";
-import { BrowserRouter as Router, Link } from "react-router-dom";
-import "../../App.css";
-import "./style.css";
-import { Card, Img_Logo } from "./style";
-import Logo1 from "../../Logo1.png";
-
+import React, { useCallback } from "react";
+import { Link } from "react-router-dom";
 import { Form, Field, FormElement } from "@progress/kendo-react-form";
 import { Error } from "@progress/kendo-react-labels";
 import { Input } from "@progress/kendo-react-inputs";
 import { Button } from "@progress/kendo-react-buttons";
 
+import api from '../../services/api';
+
+import Logo1 from "../../Logo1.png";
+
+import "./style.css";
+
+import { Card, Img_Logo } from "./style";
+
 export default function Cadastro() {
-  const handleSubmit = (dataItem) => alert(JSON.stringify(dataItem, null, 2));
+  const handleSubmit = useCallback(async (dataItem) => {
+    const response = await api.post('users', {dataItem});
+
+    console.log(response.data);
+  }, []);
 
   return (
     <div className="App-background">
@@ -41,7 +48,7 @@ export default function Cadastro() {
                       <div>
                         <div className="mb-3">
                           <Field
-                            name={"nome"}
+                            name={"name"}
                             component={Input}
                             label={"Nome Completo:"}
                           />
@@ -49,7 +56,7 @@ export default function Cadastro() {
 
                         <div className="mb-3">
                           <Field
-                            name={"CPF"}
+                            name={"cpf"}
                             component={Input}
                             label={"CPF:"}
                           />
@@ -57,7 +64,7 @@ export default function Cadastro() {
 
                         <div className="mb-3">
                           <Field
-                            name={"CNH"}
+                            name={"cnh"}
                             component={Input}
                             label={"CNH:"}
                           />
@@ -77,7 +84,7 @@ export default function Cadastro() {
 
                         <div className="mb-3">
                           <Field
-                            name={"Celular"}
+                            name={"cellphone"}
                             component={Input}
                             label={"Celular:"}
                           />
@@ -104,7 +111,7 @@ export default function Cadastro() {
                         fontWeight: "bold",
                       }}
                     >
-                      <Link to="/CadastroSenha">Avançar</Link>
+                      Avançar
                     </Button>
                   </div>
                 </FormElement>
