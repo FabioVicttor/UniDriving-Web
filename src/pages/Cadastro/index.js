@@ -2,6 +2,9 @@ import React from "react";
 import { Form, FormElement } from "@progress/kendo-react-form";
 import { Button } from "@progress/kendo-react-buttons";
 import { Stepper } from "@progress/kendo-react-layout";
+import { useHistory } from "react-router-dom";
+
+import Notificacao from "../../components/notification";
 
 import api from "../../services/api";
 
@@ -18,6 +21,10 @@ import { SenhaForm } from "./components/senha";
 const stepPages = [DadosPessoais, DadosContato, SenhaForm];
 
 export default function Cadastro() {
+  const [success, setSuccess] = React.useState(false);
+  const [error, setError] = React.useState(false);
+  const [menssage, setMenssage] = React.useState("Error ao cadastrar.");
+
   const [step, setStep] = React.useState(0);
   const [formState, setFormState] = React.useState({});
   const [steps, setSteps] = React.useState([
@@ -28,6 +35,8 @@ export default function Cadastro() {
 
   const lastStepIndex = steps.length - 1;
   const isLastStep = lastStepIndex === step;
+
+  const history = useHistory();
 
   const onStepSubmit = React.useCallback(
     async (event) => {
@@ -48,11 +57,33 @@ export default function Cadastro() {
       setFormState(values);
 
       if (isLastStep) {
-        const response = await api.post("users", values);
-        console.log(response.status);
+        try {
+          const response = await api.post("users", values);
+          console.log(response);
+          setMenssage("Cadastrado com sucesso!");
+          setSuccess(true);
+          setTimeout(() => {
+            history.push("/");
+          }, 3000);
+        } catch (error) {
+          setMenssage("Error ao cadastrar.");
+          setError(true);
+          setTimeout(() => {
+            setError(false);
+          }, 5000);
+        }
       }
     },
-    [step, steps, setSteps, setStep, setFormState, isLastStep]
+    [
+      step,
+      steps,
+      setSteps,
+      setStep,
+      setFormState,
+      isLastStep,
+      history,
+      lastStepIndex,
+    ]
   );
 
   const onPrevClick = React.useCallback(
@@ -134,6 +165,13 @@ export default function Cadastro() {
           </div>
         </div>
       </Card>
+      <Notificacao
+        success={success}
+        setSuccess={setSuccess}
+        error={error}
+        setError={setError}
+        menssage={menssage}
+      />
     </div>
   );
 }

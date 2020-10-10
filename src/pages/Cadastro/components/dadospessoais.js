@@ -2,9 +2,9 @@ import * as React from "react";
 
 import { Field } from "@progress/kendo-react-form";
 
-import { FormInput, FormMaskedTextBox } from "./formComponents.js";
+import { FormInput } from "./formComponents.js";
 
-import { nameValidator, cpfValidator, cnhValidator } from "../validators.js";
+import { nameValidator, cpfValidator } from "../validators.js";
 
 export const DadosPessoais = (
   <div>
@@ -22,8 +22,7 @@ export const DadosPessoais = (
       id={"cpf"}
       name={"cpf"}
       label={"CPF:"}
-      mask={"000.000.000-00"}
-      component={FormMaskedTextBox}
+      component={FormInput}
       validator={cpfValidator}
     />
 
@@ -32,10 +31,10 @@ export const DadosPessoais = (
       id={"cnh"}
       name={"cnh"}
       label={"CNH:"}
+      required={false}
       minLength={11}
       maxLength={11}
       component={FormInput}
-      validator={cnhValidator}
     />
   </div>
 );

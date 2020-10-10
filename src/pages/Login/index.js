@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import { Link } from "react-router-dom";
 
-import { useAuth } from '../../hooks/auth';
+import { useAuth } from "../../hooks/auth";
 
 import Logo1 from "../../assets/Logo1.png";
 
@@ -10,14 +10,31 @@ import { Error } from "@progress/kendo-react-labels";
 import { Input } from "@progress/kendo-react-inputs";
 import { Button } from "@progress/kendo-react-buttons";
 
+import Notificacao from "../../components/notification";
+
 import { Card, ImgLogo } from "./style";
 
 export default function Login() {
+  const [success, setSuccess] = React.useState(false);
+  const [error, setError] = React.useState(false);
+  const [menssage, setMenssage] = React.useState("E-Mail/Senha incorreto.");
+
   const { signIn } = useAuth();
 
-  const handleSubmit = useCallback((dataItem) => {
-    signIn(dataItem);
-  }, [signIn]);
+  const handleSubmit = useCallback(
+    async (dataItem) => {
+      try {
+        await signIn(dataItem);
+      } catch (error) {
+        setMenssage("E-Mail/Senha incorreto.");
+        setError(true);
+        setTimeout(() => {
+          setError(false);
+        }, 5000);
+      }
+    },
+    [signIn]
+  );
 
   return (
     <div className="App-background">
@@ -134,14 +151,14 @@ export default function Login() {
                 <Button>
                   <span
                     style={{ padding: "2%", color: "#3b5998" }}
-                    class="k-icon k-i-facebook-box"
+                    className="k-icon k-i-facebook-box"
                   ></span>{" "}
                   Facebook{" "}
                 </Button>
                 <Button>
                   <span
                     style={{ padding: "2%", color: "#db4a39" }}
-                    class="k-icon k-i-google-box"
+                    className="k-icon k-i-google-box"
                   ></span>{" "}
                   Google{" "}
                 </Button>
@@ -188,6 +205,13 @@ export default function Login() {
           </div>
         </div>
       </Card>
+      <Notificacao
+        success={success}
+        setSuccess={setSuccess}
+        error={error}
+        setError={setError}
+        menssage={menssage}
+      />
     </div>
   );
 }

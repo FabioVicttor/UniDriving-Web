@@ -2,7 +2,7 @@ import * as React from "react";
 
 import { Field } from "@progress/kendo-react-form";
 
-import { FormInput, FormMaskedTextBox } from "./formComponents.js";
+import { FormInput } from "./formComponents.js";
 
 import { emailValidator, phoneValidator } from "../validators.js";
 
@@ -26,8 +26,7 @@ export const DadosContato = (
       label={"Celular:"}
       hint={"informe celular de contato."}
       type={"phone"}
-      mask={"(00) 00000-0000"}
-      component={FormMaskedTextBox}
+      component={FormInput}
       validator={phoneValidator}
     />
   </div>

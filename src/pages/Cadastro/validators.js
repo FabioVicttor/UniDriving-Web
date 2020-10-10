@@ -1,6 +1,5 @@
 const emailRegex = new RegExp(/\S+@\S+\.\S+/);
 const phoneRegex = new RegExp(/^[0-9 ()+-]+$/);
-const cpfRegex = new RegExp(/_/);
 
 export const termsValidator = (value) =>
   value ? "" : "It's required to agree with Terms and Conditions.";
@@ -64,16 +63,5 @@ export const cpfValidator = (value) => {
     if (resto === 10 || resto === 11) resto = 0;
     if (resto !== parseInt(value.substring(10, 11))) return "CPF inválido.";
     return "";
-  }
-};
-
-export const cnhValidator = (value) => {
-  if (value === "" || value !== undefined) {
-    if (value === "" || value.replaceAll("D+", "").length !== 11) {
-      return "CNH inválida";
-    }
-    return "";
-  } else {
-    return "CNH inválida.";
   }
 };
