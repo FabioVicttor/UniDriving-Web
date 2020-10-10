@@ -1,11 +1,16 @@
 import React from "react";
 import { Button } from "@progress/kendo-react-buttons";
 
+import { useAuth } from "../../hooks/auth";
+
 import Logo1 from "../../assets/Logo1.png";
 
 import { ImgLogo } from "./style";
 
 export default function Home() {
+  const { signOut } = useAuth();
+
+
   return (
     <div>
       <div style={{ display: "flex" }}>
@@ -25,6 +30,8 @@ export default function Home() {
           >
             Anunciar
           </Button>
+
+          <Button onClick={signOut}></Button>
         </div>
       </div>
     </div>

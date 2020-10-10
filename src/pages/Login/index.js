@@ -158,7 +158,7 @@ export default function Login() {
               >
                 <p>
                   <Link
-                    to="/RecuperarSenha"
+                    to="/recuperar_senha"
                     style={{
                       textDecoration: "none",
                       color: "#00d2fc",
@@ -173,7 +173,7 @@ export default function Login() {
                 <p>
                   Não tem uma Conta?{" "}
                   <Link
-                    to="/Cadastro"
+                    to="/cadastro"
                     style={{
                       textDecoration: "none",
                       color: "#00d2fc",

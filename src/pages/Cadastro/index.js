@@ -1,10 +1,9 @@
-import React, { useCallback } from "react";
-import { Form, Field, FormElement } from "@progress/kendo-react-form";
-import { Error } from "@progress/kendo-react-labels";
-import { Input } from "@progress/kendo-react-inputs";
+import React from "react";
+import { Form, FormElement } from "@progress/kendo-react-form";
 import { Button } from "@progress/kendo-react-buttons";
+import { Stepper } from "@progress/kendo-react-layout";
 
-import api from '../../services/api';
+import api from "../../services/api";
 
 import Logo1 from "../../assets/Logo1.png";
 
@@ -12,12 +11,57 @@ import "./style.css";
 
 import { Card, ImgLogo } from "./style";
 
-export default function Cadastro() {
-  const handleSubmit = useCallback(async (dataItem) => {
-    const response = await api.post('users', {dataItem});
+import { DadosPessoais } from "./components/dadospessoais";
+import { DadosContato } from "./components/dadoscontato";
+import { SenhaForm } from "./components/senha";
 
-    console.log(response.data);
-  }, []);
+const stepPages = [DadosPessoais, DadosContato, SenhaForm];
+
+export default function Cadastro() {
+  const [step, setStep] = React.useState(0);
+  const [formState, setFormState] = React.useState({});
+  const [steps, setSteps] = React.useState([
+    { label: "Dados Pessoais", isValid: undefined },
+    { label: "Contato", isValid: undefined },
+    { label: "Senha", isValid: undefined },
+  ]);
+
+  const lastStepIndex = steps.length - 1;
+  const isLastStep = lastStepIndex === step;
+
+  const onStepSubmit = React.useCallback(
+    async (event) => {
+      const { isValid, values } = event;
+
+      const currentSteps = steps.map((currentStep, index) => ({
+        ...currentStep,
+        isValid: index === step ? isValid : currentStep.isValid,
+      }));
+
+      setSteps(currentSteps);
+
+      if (!isValid) {
+        return;
+      }
+
+      setStep(() => Math.min(step + 1, lastStepIndex));
+      setFormState(values);
+
+      if (isLastStep) {
+        const response = await api.post("users", values);
+        console.log(response.status);
+      }
+    },
+    [step, steps, setSteps, setStep, setFormState, isLastStep]
+  );
+
+  const onPrevClick = React.useCallback(
+    (event) => {
+      event.preventDefault();
+      setStep(() => Math.max(step - 1, 0));
+    },
+    [step, setStep]
+  );
 
   return (
     <div className="App-background">
@@ -37,103 +81,59 @@ export default function Cadastro() {
             <h1>Cadastro</h1>
           </div>
 
-          <div style={{ padding: "5%" }}>
-            <Form
-              onSubmit={handleSubmit}
-              render={(formRenderProps) => (
-                <FormElement>
-                  <fieldset className={"k-form-fieldset"}>
-                    <div className={"form_cadastro"}>
-                      <div>
-                        <div className="mb-3">
-                          <Field
-                            name={"name"}
-                            component={Input}
-                            label={"Nome Completo:"}
-                          />
-                        </div>
-
-                        <div className="mb-3">
-                          <Field
-                            name={"cpf"}
-                            component={Input}
-                            label={"CPF:"}
-                          />
-                        </div>
-
-                        <div className="mb-3">
-                          <Field
-                            name={"cnh"}
-                            component={Input}
-                            label={"CNH:"}
-                          />
-                        </div>
-                      </div>
-
-                      <div>
-                        <div className="mb-3">
-                          <Field
-                            name={"email"}
-                            type={"email"}
-                            component={EmailInput}
-                            label={"E-mail:"}
-                            validator={emailValidator}
-                          />
-                        </div>
-
-                        <div className="mb-3">
-                          <Field
-                            name={"cellphone"}
-                            component={Input}
-                            label={"Celular:"}
-                          />
+          <div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+              }}
+            >
+              <Stepper value={step} items={steps} />
+              <Form
+                initialValues={formState}
+                onSubmitClick={onStepSubmit}
+                render={(formRenderProps) => (
+                  <div style={{ alignSelf: "center", width: "60%" }}>
+                    <FormElement>
+                      {stepPages[step]}
+                      <span
+                        style={{ marginTop: "40px" }}
+                        className={"k-form-separator"}
+                      />
+                      <div
+                        style={{
+                          justifyContent: "flex-end",
+                          alignContent: "center",
+                        }}
+                        className={"k-form-buttons k-buttons-end"}
+                      >
+                        <div>
+                          {step !== 0 ? (
+                            <Button
+                              style={{ marginRight: "16px" }}
+                              onClick={onPrevClick}
+                            >
+                              Voltar
+                            </Button>
+                          ) : undefined}
+                          <Button
+                            primary={true}
+                            disabled={!formRenderProps.allowSubmit}
+                            onClick={formRenderProps.onSubmit}
+                          >
+                            {isLastStep ? "Confirmar" : "Proximo"}
+                          </Button>
                         </div>
                       </div>
-                    </div>
-                  </fieldset>
-                  <div
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      marginTop: "5%",
-                    }}
-                  >
-                    <Button
-                      type={"submit"}
-                      disabled={!formRenderProps.allowSubmit}
-                      primary={true}
-                      style={{
-                        backgroundColor: "#2C73D2",
-                        borderColor: "#2C73D2",
-                        width: "45%",
-                        fontWeight: "bold",
-                      }}
-                    >
-                      Avançar
-                    </Button>
+                    </FormElement>
                   </div>
-                </FormElement>
-              )}
-            />
+                )}
+              />
+            </div>
           </div>
         </div>
       </Card>
     </div>
   );
 }
-
-//Validação e-mail - Inicio
-const emailRegex = new RegExp(/\S+@\S+\.\S+/);
-const emailValidator = (value) =>
-  emailRegex.test(value) ? "" : "Por favor, informe um e-mail válido.";
-const EmailInput = (fieldRenderProps) => {
-  const { validationMessage, visited, ...others } = fieldRenderProps;
-  return (
-    <div>
-      <Input {...others} />
-      {visited && validationMessage && <Error>{validationMessage}</Error>}
-    </div>
-  );
-};
-//Validação e-mail - Fim
