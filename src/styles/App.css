@@ -68,3 +68,9 @@ body {
   border-left: none !important;
   border-right: none !important;
 }
+
+html,
+body,
+#root {
+  height: 100%;
+}

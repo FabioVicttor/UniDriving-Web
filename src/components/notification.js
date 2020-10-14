@@ -15,10 +15,13 @@ export default function Notificacao({
   return (
     <NotificationGroup
       style={{
-        right: 0,
-        bottom: 0,
-        alignItems: "flex-start",
-        flexWrap: "wrap-reverse",
+        top: 0,
+        left: "50%",
+        transform: "translateX(-50%)",
+        // right: 0,
+        // bottom: 0,
+        // alignItems: "flex-start",
+        // flexWrap: "wrap-reverse",
       }}
     >
       <Slide direction={success ? "up" : "down"}>

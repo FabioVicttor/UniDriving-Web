@@ -20,6 +20,7 @@
     "@progress/kendo-react-progressbars": "^3.17.0",
     "@progress/kendo-theme-default": "^4.22.0",
     "@progress/kendo-theme-material": "^3.19.2",
+    "@steveeeie/react-page-transition": "^1.2.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
