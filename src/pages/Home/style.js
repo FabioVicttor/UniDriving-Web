@@ -1,14 +1,13 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 export const Card = styled.div`
   background-color: white;
-  min-width: 285px;
-  width: 25%;
-  max-height: 600px;
-  min-height: 550px;
-  height: 65vh;
-  display:flex;
+  width: 65%;
+  height: 90%;
+  display: flex;
   justify-content: center;
+  margin-top: 5%;
+  padding: 2%;
 `;
 
 export const ImgLogo = styled.img`

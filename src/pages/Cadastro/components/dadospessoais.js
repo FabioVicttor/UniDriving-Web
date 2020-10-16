@@ -2,9 +2,9 @@ import * as React from "react";
 
 import { Field } from "@progress/kendo-react-form";
 
-import { FormInput } from "./formComponents.js";
+import { FormInput } from "../../../components/formComponents.js";
 
-import { nameValidator, cpfValidator } from "../validators.js";
+import { nameValidator, cpfValidator } from "../../../utils/validators.js";
 
 export const DadosPessoais = (
   <div>

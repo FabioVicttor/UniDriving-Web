@@ -3,24 +3,32 @@ import { Button } from "@progress/kendo-react-buttons";
 
 import { useAuth } from "../../hooks/auth";
 
-import Logo1 from "../../assets/Logo1.png";
-
-import { ImgLogo } from "./style";
+import { Card } from "./style";
 
 export default function Home() {
   const { signOut } = useAuth();
 
-
   return (
-    <div>
-      <div style={{ display: "flex" }}>
-        <div>
-          <ImgLogo src={Logo1} />
+    <div className="App-background-home">
+      <div id="header" className="Header-home">
+        <div className="Header-Logo">
+          <h1>Logo</h1>
         </div>
-        <div>Meus Anúncios</div>
-        <div>Chat</div>
-        <div>
-          <Button
+        <div className="NavBar">
+          <div class="box">
+            <div class="boxContent">
+              <h1 class="title">Meus Anúncios</h1>
+            </div>
+            <a href="#"></a>
+          </div>
+          <div class="box">
+            <div class="boxContent">
+              <h1 class="title">Grupos</h1>
+            </div>
+            <a href="#"></a>
+          </div>
+
+          {/* <Button
             style={{
               backgroundColor: "#2C73D2",
               borderColor: "#2C73D2",
@@ -29,10 +37,13 @@ export default function Home() {
             }}
           >
             Anunciar
-          </Button>
-
-          <Button onClick={signOut}></Button>
+          </Button> */}
         </div>
+        <Button onClick={signOut}>SignOut</Button>
+      </div>
+
+      <div className="Content">
+        <Card></Card>
       </div>
     </div>
   );

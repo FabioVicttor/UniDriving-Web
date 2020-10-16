@@ -4,9 +4,9 @@ import { Field } from "@progress/kendo-react-form";
 
 import { FormInput } from "../../../components/formComponents.js";
 
-import { emailValidator, phoneValidator } from "../../../utils/validators.js";
+import { emailValidator } from "../../../utils/validators.js";
 
-export const DadosContato = (
+export const DadosContatoRec = (
   <div>
     <Field
       key={"email"}
@@ -17,17 +17,6 @@ export const DadosContato = (
       type={"email"}
       component={FormInput}
       validator={emailValidator}
-    />
-
-    <Field
-      key={"cellphone"}
-      id={"cellphone"}
-      name={"cellphone"}
-      label={"Celular:"}
-      hint={"informe celular de contato."}
-      type={"phone"}
-      component={FormInput}
-      validator={phoneValidator}
     />
   </div>
 );
