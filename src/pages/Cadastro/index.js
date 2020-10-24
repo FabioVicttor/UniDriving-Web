@@ -8,7 +8,7 @@ import Notificacao from "../../components/notification";
 
 import api from "../../services/api";
 
-import Logo1 from "../../assets/Logo1.png";
+import Logo1 from "../../assets/LogoSemFundo.png";
 
 import "./style.css";
 

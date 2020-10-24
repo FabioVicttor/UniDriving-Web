@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import { useAuth } from "../../hooks/auth";
 
-import Logo1 from "../../assets/Logo1.png";
+import Logo1 from "../../assets/LogoSemFundo.png";
 
 import { Form, Field, FormElement } from "@progress/kendo-react-form";
 import { Error } from "@progress/kendo-react-labels";
