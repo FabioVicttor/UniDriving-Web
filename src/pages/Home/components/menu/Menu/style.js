@@ -4,14 +4,12 @@ export const TopMenu = styled.div`
   @media (min-width: 800px) {
     display: flex;
     width: 100%;
-    height: 10%;
+    min-height: 71px;
     background-color: white;
     align-items: center;
     position: absolute;
-    transition: 0.3s all ease-in-out;
   }
   display: none;
-  transition: 0.3s all ease-in-out;
 `;
 
 export const LeftMenu = styled.div`
@@ -24,10 +22,10 @@ export const LeftMenu = styled.div`
     align-items: center;
     position: absolute;
     border-bottom-right-radius: 25px;
-    transition: 0.3s all ease-in-out;
+    transition: transform 0.3s ease-in-out;
+    transform: ${({ open }) => (open ? "translateX(0)" : "translateX(-100%)")};
   }
   display: none;
-  transition: 0.3s all ease-in-out;
 `;
 
 export const DivImgLogo = styled.div`
@@ -50,9 +48,6 @@ export const ImgLogo = styled.img`
   }
   max-height: 90%;
   max-width: 100%;
-  /* @media (min-width: 800) { */
-
-  /* } */
 `;
 
 export const IconeLogo = styled.img`

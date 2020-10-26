@@ -1,5 +1,6 @@
 import React from "react";
-import { useAuth } from "../../../../hooks/auth";
+import { useAuth } from "../../../../../hooks/auth";
+import { bool } from "prop-types";
 import {
   TopMenu,
   LeftMenu,
@@ -7,15 +8,19 @@ import {
   ButtonMenu,
   ItemMenu,
   ImgLogo,
-  DivImgLogo
+  DivImgLogo,
 } from "./style";
-import Icons_Exit from "../../../../assets/icons/icon_exit";
+import Icons_Exit from "../../../../../assets/icons/icon_exit";
 import "./style.css";
 
-import LogoHeader from "../../../../assets/LogoSemFundo.png";
-import IconeLogo from "../../../../assets/Icone_Logo.png";
+import LogoHeader from "../../../../../assets/LogoSemFundo.png";
+import IconeLogo from "../../../../../assets/Icone_Logo.png";
 
-export default function Menu() {
+Menu.propTypes = {
+  open: bool.isRequired,
+};
+
+export default function Menu({ open }) {
   const { signOut } = useAuth();
 
   return (
@@ -48,12 +53,12 @@ export default function Menu() {
         </NavBar>
       </TopMenu>
 
-      <LeftMenu>
+      <LeftMenu open={open}>
         <DivImgLogo>
           <ImgLogo src={IconeLogo} />{" "}
         </DivImgLogo>
         <nav style={{ width: "100%", display: "inline" }}>
-        <ItemMenu>
+          <ItemMenu>
             <ButtonMenu style={{ width: "95%" }} onClick={(e) => {}}>
               Meus Anúncios
             </ButtonMenu>
