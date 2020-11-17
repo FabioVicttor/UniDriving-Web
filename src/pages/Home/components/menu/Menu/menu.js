@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { useAuth } from "../../../../../hooks/auth";
 import { bool } from "prop-types";
 import {
@@ -11,7 +12,6 @@ import {
   DivImgLogo,
 } from "./style";
 import Icons_Exit from "../../../../../assets/icons/icon_exit";
-import "./style.css";
 
 import LogoHeader from "../../../../../assets/LogoSemFundo.png";
 import IconeLogo from "../../../../../assets/Icone_Logo.png";
@@ -20,7 +20,7 @@ Menu.propTypes = {
   open: bool.isRequired,
 };
 
-export default function Menu({ open }) {
+export default function Menu({ open, setOpen }) {
   const { signOut } = useAuth();
 
   return (
@@ -31,17 +31,24 @@ export default function Menu({ open }) {
         </DivImgLogo>
         <NavBar>
           <div>
-            <ButtonMenu onClick={(e) => {}}>Meus Anúncios</ButtonMenu>
+            <Link
+              to="home/anuncios"
+              style={{ width: "95%", textDecoration: "none" }}
+            >
+              <ButtonMenu onClick={(e) => {}}>Anúncios</ButtonMenu>
+            </Link>
           </div>
 
           <div>
-            <ButtonMenu>
-              <span
-                style={{ fontSize: "50px", padding: "2%" }}
-                className="k-icon k-i-myspace title"
-              ></span>{" "}
-              Grupos
-            </ButtonMenu>
+            <Link to="home/perfil" style={{ width: "95%", textDecoration: "none" }}>
+              <ButtonMenu>
+                <span
+                  style={{ fontSize: "50px", padding: "2%" }}
+                  className="k-icon k-i-myspace title"
+                ></span>{" "}
+                Perfil
+              </ButtonMenu>
+            </Link>
           </div>
 
           <div>
@@ -59,13 +66,21 @@ export default function Menu({ open }) {
         </DivImgLogo>
         <nav style={{ width: "100%", display: "inline" }}>
           <ItemMenu>
-            <ButtonMenu style={{ width: "95%" }} onClick={(e) => {}}>
-              Meus Anúncios
-            </ButtonMenu>
+            <Link
+              to="home/anuncios"
+              style={{ width: "95%", textDecoration: "none" }}
+            >
+              <ButtonMenu
+                style={{ width: "100%" }}
+                onClick={() => setOpen(false)}
+              >
+                Anúncios
+              </ButtonMenu>
+            </Link>
           </ItemMenu>
 
           <ItemMenu>
-            <ButtonMenu style={{ width: "95%" }}>
+            <ButtonMenu style={{ width: "95%" }} onClick={() => setOpen(false)}>
               <span
                 style={{ fontSize: "40px", padding: "2%" }}
                 className="k-icon k-i-myspace title"
@@ -73,20 +88,20 @@ export default function Menu({ open }) {
               Grupos
             </ButtonMenu>
           </ItemMenu>
-          <ItemMenu>
-            <ButtonMenu style={{ width: "95%" }} onClick={(e) => {}}>
-              Meus Anúncios
-            </ButtonMenu>
-          </ItemMenu>
 
           <ItemMenu>
-            <ButtonMenu style={{ width: "95%" }}>
-              <span
-                style={{ fontSize: "40px", padding: "2%" }}
-                className="k-icon k-i-myspace title"
-              ></span>{" "}
-              Perfil
-            </ButtonMenu>
+            <Link to="home/perfil" style={{ width: "95%", textDecoration: "none" }}>
+              <ButtonMenu
+                style={{ width: "100%" }}
+                onClick={() => setOpen(false)}
+              >
+                <span
+                  style={{ fontSize: "40px", padding: "2%" }}
+                  className="k-icon k-i-myspace title"
+                ></span>{" "}
+                Perfil
+              </ButtonMenu>
+            </Link>
           </ItemMenu>
 
           <ItemMenu>

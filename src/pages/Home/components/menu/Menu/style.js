@@ -14,6 +14,7 @@ export const TopMenu = styled.div`
 
 export const LeftMenu = styled.div`
   @media (max-width: 799px) {
+    z-index: 9;
     display: block;
     width: 50%;
     min-width: 250px;
