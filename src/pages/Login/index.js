@@ -1,95 +1,232 @@
-import React, { useState } from 'react';
+import React, { useCallback } from "react";
 import { Link } from "react-router-dom";
-import { Card, ImgLogo } from "./style"
 
-import { FloatingLabel } from '@progress/kendo-react-labels';
-import { Input } from '@progress/kendo-react-inputs';
-import { Button } from '@progress/kendo-react-buttons';
+import { useAuth } from "../../hooks/auth";
 
-import Logo1 from '../../assets/Logo1.png';
+import Logo1 from "../../assets/LogoSemFundo.png";
 
-import '@progress/kendo-theme-default/dist/all.css';
+import { Form, Field, FormElement } from "@progress/kendo-react-form";
+import { Error } from "@progress/kendo-react-labels";
+import { Input } from "@progress/kendo-react-inputs";
+import { Button } from "@progress/kendo-react-buttons";
+
+import Notificacao from "../../components/notification";
+
+import { Card, ImgLogo } from "./style";
 
 export default function Login() {
+  const [success, setSuccess] = React.useState(false);
+  const [error, setError] = React.useState(false);
+  const [menssage, setMenssage] = React.useState("E-Mail/Senha incorreto.");
 
-  const [email, setEmail] = useState();
-  const [senha, setSenha] = useState();
+  const { signIn } = useAuth();
+
+  const handleSubmit = useCallback(
+    async (dataItem) => {
+      try {
+        await signIn(dataItem);
+      } catch (error) {
+        setMenssage("E-Mail/Senha incorreto.");
+        setError(true);
+        setTimeout(() => {
+          setError(false);
+        }, 5000);
+      }
+    },
+    [signIn]
+  );
 
   return (
-    <Card>
-      <div>
-        <div className="DivLogo">
-          <ImgLogo src={Logo1} />
-        </div>
-
-        <div style={{ padding: "5%" }}>
-
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-
-            <FloatingLabel label={'E-Mail/Celular:'} editorId={'E-Mail/Celular'} editorValue={email} style={{ width: "75%" }}>
-              <Input
-                style={{ borderTop: "none", borderLeft: "none", borderRight: "none" }}
-                id={'E-Mail/Celular'}
-                value={email}
-                onChange={(e) => setEmail(e.email)}
-              />
-            </FloatingLabel>
-
+    <div className="App-background">
+      <Card>
+        <div>
+          <div className="DivLogo">
+            <ImgLogo src={Logo1} />
           </div>
+          <div style={{ padding: "5%" }}>
+            <Form
+              onSubmit={handleSubmit}
+              render={(formRenderProps) => (
+                <FormElement style={{ maxWidth: 650 }}>
+                  <fieldset className={"k-form-fieldset"}>
+                    <div>
+                      <div className="mb-3">
+                        <Field
+                          name={"email"}
+                          type={"email"}
+                          component={EmailInput}
+                          label={"E-mail:"}
+                          validator={emailValidator}
+                        />
+                      </div>
 
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", marginTop: "5%" }}>
-            <FloatingLabel label={'Senha:'} editorId={'Senha'} editorValue={senha} style={{ width: "75%" }}>
-              <Input
-                type="password"
-                style={{ borderTop: "none", borderLeft: "none", borderRight: "none" }}
-                id={'Senha'}
-                value={senha}
-                onChange={(e) => setSenha(e.senha)}
-              />
-            </FloatingLabel>
+                      <div className="mb-3">
+                        <Field
+                          name={"password"}
+                          component={Input}
+                          label={"Senha:"}
+                          type="password"
+                        />
+                      </div>
+                    </div>
+                  </fieldset>
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      marginTop: "5%",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        marginTop: "5%",
+                        width: "100%",
+                      }}
+                    >
+                      <Button
+                        type={"submit"}
+                        disabled={!formRenderProps.allowSubmit}
+                        primary={true}
+                        style={{
+                          backgroundColor: "#2C73D2",
+                          borderColor: "#2C73D2",
+                          width: "75%",
+                          fontWeight: "bold",
+                        }}
+                      >
+                        Entrar
+                      </Button>
+                    </div>
+                  </div>
+                </FormElement>
+              )}
+            />
           </div>
+          <div id="footer">
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                marginTop: "10%",
+                color: "#2C73D2",
+              }}
+            >
+              <div className="linha"></div>
+              <div>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  OU
+                </div>
+                <div>Entar Com</div>
+              </div>
+              <div className="linha"></div>
+            </div>
 
-        </div>
-
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "center", marginTop: "5%" }}>
-          <Button primary={true} style={{ backgroundColor: "#2C73D2", borderColor: "#2C73D2", width: "60%", fontWeight: "bold" }}>
-            Entrar
-          </Button>
-        </div>
-
-        <div id="footer">
-
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", marginTop: "10%", color: "#2C73D2" }}>
-            <div className="linha"></div>
             <div>
-              <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>OU</div>
-              <div>Entar Com</div>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  color: "#2C73D2",
+                }}
+              ></div>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-evenly",
+                  padding: "2%",
+                  marginTop: "5%",
+                }}
+              >
+                <Button>
+                  <span
+                    style={{ padding: "2%", color: "#3b5998" }}
+                    className="k-icon k-i-facebook-box"
+                  ></span>{" "}
+                  Facebook{" "}
+                </Button>
+                <Button>
+                  <span
+                    style={{ padding: "2%", color: "#db4a39" }}
+                    className="k-icon k-i-google-box"
+                  ></span>{" "}
+                  Google{" "}
+                </Button>
+              </div>
             </div>
-            <div className="linha"></div>
-          </div>
 
-          <div>
-            <div style={{ display: "flex", justifyContent: "center", color: "#2C73D2" }}>
-
-            </div>
-            <div style={{ display: "flex", justifyContent: "space-evenly", padding: "2%", marginTop: "5%" }}>
-              <Button ><span style={{ padding: "2%", color: "#3b5998" }} className="k-icon k-i-facebook-box"></span> Facebook </Button>
-              <Button ><span style={{ padding: "2%", color: "#db4a39" }} className="k-icon k-i-google-box"></span> Google </Button>
-            </div>
-          </div>
-
-          <div >
-            <div style={{ display: "flex", justifyContent: "center", marginTop: "5%" }}>
-              <p><a href="" style={{ textDecoration: "none", color: "#00d2fc", fontWeight: "bold" }}>Esqueceu a Senha?</a></p>
-            </div>
-            <div style={{ display: "flex", justifyContent: "center" }}>
-              <p>Não tem uma Conta? <Link to="/Cadastro" style={{ textDecoration: "none", color: "#00d2fc", fontWeight: "bold" }}>Cadastre-se</Link> </p>
+            <div>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  marginTop: "5%",
+                }}
+              >
+                <p>
+                  <Link
+                    to="/recuperar_senha"
+                    style={{
+                      textDecoration: "none",
+                      color: "#00d2fc",
+                      fontWeight: "bold",
+                    }}
+                  >
+                    Esqueceu a Senha?
+                  </Link>
+                </p>
+              </div>
+              <div style={{ display: "flex", justifyContent: "center" }}>
+                <p>
+                  Não tem uma Conta?{" "}
+                  <Link
+                    to="/cadastro"
+                    style={{
+                      textDecoration: "none",
+                      color: "#00d2fc",
+                      fontWeight: "bold",
+                    }}
+                  >
+                    Cadastre-se
+                  </Link>{" "}
+                </p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </Card>
+      </Card>
+      <Notificacao
+        success={success}
+        setSuccess={setSuccess}
+        error={error}
+        setError={setError}
+        menssage={menssage}
+      />
+    </div>
   );
 }
 
-
+//Validação e-mail - Inicio
+const emailRegex = new RegExp(/\S+@\S+\.\S+/);
+const emailValidator = (value) =>
+  emailRegex.test(value) ? "" : "Por favor, informe um e-mail válido.";
+const EmailInput = (fieldRenderProps) => {
+  const { validationMessage, visited, ...others } = fieldRenderProps;
+  return (
+    <div>
+      <Input {...others} />
+      {visited && validationMessage && <Error>{validationMessage}</Error>}
+    </div>
+  );
+};
+//Validação e-mail - Fim

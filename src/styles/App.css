@@ -62,3 +62,16 @@ body {
   src: url("https://kendo.cdn.telerik.com/2017.2.621/styles/fonts/DejaVu/DejaVuSans-Oblique.ttf")
     format("truetype");
 }
+
+/* .k-textbox {
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+} */
+
+html,
+body,
+#root {
+  height: 100%;
+}
+

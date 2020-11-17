@@ -1,16 +1,18 @@
-import React from 'react';
-import { BrowserRouter as Router } from "react-router-dom";
+import React from "react";
+import {
+  BrowserRouter as Router,
+} from "react-router-dom";
+
+import AppProvider from './hooks';
 
 import Routes from './routes';
 
-function App() {
+export default function App() {
   return (
     <Router>
-    <div className="App-background">
-      <Routes></Routes>
-    </div>
-    </Router>  
-  ); 
+      <AppProvider>
+        <Routes />
+      </AppProvider>
+    </Router>
+  );
 };
-
-export default App;

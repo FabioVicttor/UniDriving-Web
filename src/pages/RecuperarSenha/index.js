@@ -2,41 +2,37 @@ import React from "react";
 import { Form, FormElement } from "@progress/kendo-react-form";
 import { Button } from "@progress/kendo-react-buttons";
 import { Stepper } from "@progress/kendo-react-layout";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 
 import Notificacao from "../../components/notification";
 
-import api from "../../services/api";
+// import api from "../../services/api";
 
 import Logo1 from "../../assets/LogoSemFundo.png";
 
-import "./style.css";
-
 import { Card, ImgLogo } from "./style";
 
-import { DadosPessoais } from "./components/dadospessoais";
-import { DadosContato } from "./components/dadoscontato";
-import { SenhaForm } from "./components/senha";
+import { DadosContatoRec } from "./components/email";
+import { SenhaFormRec } from "./components/senha";
 
-const stepPages = [DadosPessoais, DadosContato, SenhaForm];
+const stepPages = [DadosContatoRec, SenhaFormRec];
 
-export default function Cadastro() {
+export default function RecuperarSenha() {
   const [success, setSuccess] = React.useState(false);
   const [error, setError] = React.useState(false);
-  const [menssage, setMenssage] = React.useState("Error ao cadastrar.");
+  const [menssage, setMenssage] = React.useState("Error ao alterar senha.");
 
   const [step, setStep] = React.useState(0);
   const [formState, setFormState] = React.useState({});
   const [steps, setSteps] = React.useState([
-    { label: "Dados Pessoais", isValid: undefined },
-    { label: "Contato", isValid: undefined },
+    { label: "E-mail", isValid: undefined },
     { label: "Senha", isValid: undefined },
   ]);
 
   const lastStepIndex = steps.length - 1;
   const isLastStep = lastStepIndex === step;
 
-  const history = useHistory();
+  // const history = useHistory();
 
   const onStepSubmit = React.useCallback(
     async (event) => {
@@ -57,21 +53,15 @@ export default function Cadastro() {
       setFormState(values);
 
       if (isLastStep) {
-        try {
-          const response = await api.post("users", values);
-          console.log(response);
-          setMenssage("Cadastrado com sucesso!");
-          setSuccess(true);
-          setTimeout(() => {
-            history.push("/");
-          }, 3000);
-        } catch (error) {
-          setMenssage("Error ao cadastrar.");
-          setError(true);
-          setTimeout(() => {
-            setError(false);
-          }, 5000);
-        }
+        // setTimeout(() => {
+        //   history.push("/");
+        // }, 3000);
+
+        setMenssage("Erro ao Alterar Senha.");
+        setError(true);
+        setTimeout(() => {
+          setError(false);
+        }, 5000);
       }
     },
     [
@@ -81,7 +71,7 @@ export default function Cadastro() {
       setStep,
       setFormState,
       isLastStep,
-      history,
+      // history,
       lastStepIndex,
     ]
   );
@@ -109,7 +99,7 @@ export default function Cadastro() {
               justifyContent: "center",
             }}
           >
-            <h1>Cadastro</h1>
+            <h1>Recuperar Senha</h1>
           </div>
 
           <div>

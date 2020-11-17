@@ -12,10 +12,9 @@ export const Card = styled.div`
   justify-content: center;
 `;
 
-export const Img_Logo = styled.img`
+export const ImgLogo = styled.img`
   width: 30%;
   height: 40%;
   display: flex;
   align-items: center;
 `;
-
