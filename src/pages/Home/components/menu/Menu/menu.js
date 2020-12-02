@@ -20,19 +20,19 @@ Menu.propTypes = {
   open: bool.isRequired,
 };
 
-export default function Menu({ open, setOpen }) {
+export default function Menu({ open, setOpen, url }) {
   const { signOut } = useAuth();
 
   return (
     <div>
       <TopMenu>
         <DivImgLogo>
-          <ImgLogo src={LogoHeader} />{" "}
+          <ImgLogo src={LogoHeader} />
         </DivImgLogo>
         <NavBar>
           <div>
             <Link
-              to="home/anuncios"
+              to={`${url}/anuncios`}
               style={{ width: "95%", textDecoration: "none" }}
             >
               <ButtonMenu onClick={(e) => {}}>Anúncios</ButtonMenu>
@@ -40,12 +40,12 @@ export default function Menu({ open, setOpen }) {
           </div>
 
           <div>
-            <Link to="home/perfil" style={{ width: "95%", textDecoration: "none" }}>
+            <Link to={`${url}/perfil`} style={{ width: "95%", textDecoration: "none" }}>
               <ButtonMenu>
                 <span
                   style={{ fontSize: "50px", padding: "2%" }}
                   className="k-icon k-i-myspace title"
-                ></span>{" "}
+                ></span>
                 Perfil
               </ButtonMenu>
             </Link>
@@ -62,12 +62,12 @@ export default function Menu({ open, setOpen }) {
 
       <LeftMenu open={open}>
         <DivImgLogo>
-          <ImgLogo src={IconeLogo} />{" "}
+          <ImgLogo src={IconeLogo} />
         </DivImgLogo>
         <nav style={{ width: "100%", display: "inline" }}>
           <ItemMenu>
             <Link
-              to="home/anuncios"
+              to={`${url}/anuncios`}
               style={{ width: "95%", textDecoration: "none" }}
             >
               <ButtonMenu
@@ -84,13 +84,13 @@ export default function Menu({ open, setOpen }) {
               <span
                 style={{ fontSize: "40px", padding: "2%" }}
                 className="k-icon k-i-myspace title"
-              ></span>{" "}
+              ></span>
               Grupos
             </ButtonMenu>
           </ItemMenu>
 
           <ItemMenu>
-            <Link to="home/perfil" style={{ width: "95%", textDecoration: "none" }}>
+            <Link to={`${url}/perfil`} style={{ width: "95%", textDecoration: "none" }}>
               <ButtonMenu
                 style={{ width: "100%" }}
                 onClick={() => setOpen(false)}
@@ -98,7 +98,7 @@ export default function Menu({ open, setOpen }) {
                 <span
                   style={{ fontSize: "40px", padding: "2%" }}
                   className="k-icon k-i-myspace title"
-                ></span>{" "}
+                ></span>
                 Perfil
               </ButtonMenu>
             </Link>

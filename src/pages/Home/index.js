@@ -13,7 +13,8 @@ import Perfil from "./components/perfil/index";
 
 export default function Home() {
   const [open, setOpen] = useState(false);
-  const { path } = useRouteMatch();
+  const { path, url } = useRouteMatch();
+
   const node = useRef();
   useOnClickOutside(node, () => setOpen(false));
 
@@ -22,7 +23,7 @@ export default function Home() {
       <Router>
         <div ref={node}>
           <Burger open={open} setOpen={setOpen}></Burger>
-          <Menu open={open} setOpen={setOpen}></Menu>
+          <Menu open={open} setOpen={setOpen} url={url}></Menu>
         </div>
 
         <Content>
