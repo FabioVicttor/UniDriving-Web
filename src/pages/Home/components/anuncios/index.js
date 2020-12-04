@@ -21,21 +21,51 @@ export default function Anuncios() {
           Meus Anuncios
         </ButtonMenu>
       </div>
-      <Container>
-        <Box>
-          <h1>Title</h1>
-          <p>
-            Less unicorn and apart and credibly yikes touched much jeez that so
-            reverent the by a as that kiwi fed wherever more aboard.
-          </p>
-        </Box>
-        <Box>
-          <h1>Title</h1>
-          <p>
-            Less unicorn and apart and credibly yikes touched much jeez that so
-            reverent the by a as that kiwi fed wherever more aboard.
-          </p>
-        </Box>
+      <Container class="scrollbar" id="style-5">
+        <div class="force-overflow">
+          <Box>
+            <h1>Title</h1>
+            <p>
+              Less unicorn and apart and credibly yikes touched much jeez that
+              so reverent the by a as that kiwi fed wherever more aboard.
+            </p>
+          </Box>
+          <Box>
+            <h1>Title</h1>
+            <p>
+              Less unicorn and apart and credibly yikes touched much jeez that
+              so reverent the by a as that kiwi fed wherever more aboard.
+            </p>
+          </Box>
+          <Box>
+            <h1>Title</h1>
+            <p>
+              Less unicorn and apart and credibly yikes touched much jeez that
+              so reverent the by a as that kiwi fed wherever more aboard.
+            </p>
+          </Box>
+          <Box>
+            <h1>Title</h1>
+            <p>
+              Less unicorn and apart and credibly yikes touched much jeez that
+              so reverent the by a as that kiwi fed wherever more aboard.
+            </p>
+          </Box>
+          <Box>
+            <h1>Title</h1>
+            <p>
+              Less unicorn and apart and credibly yikes touched much jeez that
+              so reverent the by a as that kiwi fed wherever more aboard.
+            </p>
+          </Box>
+          <Box>
+            <h1>Title</h1>
+            <p>
+              Less unicorn and apart and credibly yikes touched much jeez that
+              so reverent the by a as that kiwi fed wherever more aboard.
+            </p>
+          </Box>
+        </div>
       </Container>
     </Card>
   );

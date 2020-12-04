@@ -3,9 +3,12 @@ import styled from "styled-components";
 export const Card = styled.div`
   margin-top: 5%;
   background-color: white;
-  height: 75%;
+  /* height: 75%; */
   width: 70%;
-  border-radius: 30px;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  border-bottom-right-radius: 30px;
   box-shadow: -8px 8px 20px 5px #0020389e;
   @media (max-width: 799px) {
     box-shadow: -5px 11px 20px 5px #0020389e;
@@ -14,15 +17,17 @@ export const Card = styled.div`
 `;
 
 export const Container = styled.div`
-  margin-top: 0%;
+  padding-top: 20px;
   width: 100%;
-  display: inline-flex;
-  justify-content: space-evenly;
+  height: 725px;
+  overflow-x: auto;
+  /* display: inline-flex; */
+  /* justify-content: space-evenly; */
   align-items: center;
 `;
 
 export const Box = styled.div`
-  width: 35%;
+  /* width: 97%; */
   background-color: white;
   transition: 0.3s all ease-in-out;
   position: relative;
@@ -30,8 +35,6 @@ export const Box = styled.div`
   text-transform: none;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   text-align: center;
   padding: 15px;
 
@@ -69,6 +72,7 @@ export const Box = styled.div`
 `;
 
 export const ButtonMenu = styled.button`
+  cursor: pointer;
   box-shadow: none !important;
   text-transform: none;
   border: none;
@@ -103,6 +107,7 @@ export const ButtonMenu = styled.button`
   }
 
   :active {
+    cursor: progress;
     box-shadow: none !important;
     color: white;
     transition-duration: 0.3s;

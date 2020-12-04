@@ -81,6 +81,7 @@ export const ButtonMenu = styled.button`
   align-items: center;
   justify-content: center;
   display: flex;
+  cursor: pointer;
 
   :hover {
     z-index: 9999999;
@@ -100,6 +101,7 @@ export const ButtonMenu = styled.button`
   }
 
   :active {
+    cursor: progress;
     box-shadow: none !important;
     color: white;
     transition-duration: 0.3s;
