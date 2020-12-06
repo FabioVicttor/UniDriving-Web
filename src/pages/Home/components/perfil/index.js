@@ -11,25 +11,27 @@ export default function Perfil() {
   const { user } = useAuth();
   return (
     <Card>
-      <div
-        style={{
-          width: "50px",
-          height: "50px",
-          border: "solid",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          borderRadius: "50px",
-          padding: "10px",
-          borderWidth: "5px",
-        }}
-      >
-        <span
-          style={{ fontSize: "50px", padding: "2%" }}
-          className="k-icon k-i-user title"
-        ></span>
+      <div>
+        <div
+          style={{
+            width: "50px",
+            height: "50px",
+            border: "solid",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            borderRadius: "50px",
+            padding: "10px",
+            borderWidth: "5px",
+          }}
+        >
+          <span
+            style={{ fontSize: "50px", padding: "2%" }}
+            className="k-icon k-i-user title"
+          ></span>
+        </div>
+        <h1>PERFIL</h1>
       </div>
-      <h1>Perfil</h1>
       <div style={{ display: "flex", flexDirection: "column" }}>
         <ItemPerfil>
           <Icon_Account />
