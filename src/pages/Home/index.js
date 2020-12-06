@@ -1,5 +1,10 @@
 import React, { useState, useRef } from "react";
-import { BrowserRouter as Router, Switch, Route, useRouteMatch } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  useRouteMatch,
+} from "react-router-dom";
 
 import { useOnClickOutside } from "./hooks";
 
@@ -28,8 +33,8 @@ export default function Home() {
 
         <Content>
           <Switch>
-            <Route path={`${path}/anuncios`} component={Anuncios}  />
-            <Route path={`${path}/perfil`} component={Perfil}  />
+            <Route path={`${path}/anuncios`} component={Anuncios} />
+            <Route path={`${path}/perfil`} component={Perfil} />
           </Switch>
         </Content>
       </Router>

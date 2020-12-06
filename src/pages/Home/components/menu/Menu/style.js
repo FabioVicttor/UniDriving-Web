@@ -81,6 +81,10 @@ export const ButtonMenu = styled.button`
   align-items: center;
   justify-content: center;
   display: flex;
+  @media (min-width: 799px) {
+    margin: 10px;
+  }
+  /* border-radius: 30px; */
   cursor: pointer;
 
   :hover {

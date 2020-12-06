@@ -1,8 +1,20 @@
 import React from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  useRouteMatch,
+} from "react-router-dom";
+import { Link } from "react-router-dom";
 
-import { Card, Box, Container, ButtonMenu } from "./style";
+import Anuncio_sub from "./anuncios";
+import Meus_Anuncios_sub from "./meus_anuncios";
+import Novo_Anuncio from "./novo_anuncio";
+
+import { Card, Container, ButtonMenu } from "./style";
 
 export default function Anuncios() {
+  const { path, url } = useRouteMatch();
   return (
     <Card>
       <div
@@ -14,58 +26,35 @@ export default function Anuncios() {
           borderTopRightRadius: "30px",
         }}
       >
-        <ButtonMenu style={{ borderTopLeftRadius: "30px" }}>
-          Anuncios
-        </ButtonMenu>
-        <ButtonMenu style={{ borderTopRightRadius: "30px" }}>
-          Meus Anuncios
-        </ButtonMenu>
+        <Link
+          to={`${url}/todos_anuncios`}
+          style={{ width: "100%", textDecoration: "none" }}
+        >
+          <ButtonMenu style={{ borderTopLeftRadius: "30px" }}>
+            Anuncios
+          </ButtonMenu>
+        </Link>
+        <Link
+          to={`${url}/meus_anuncios`}
+          style={{ width: "100%", textDecoration: "none" }}
+        >
+          <ButtonMenu>Meus Anuncios</ButtonMenu>
+        </Link>
+        <Link
+          to={`${url}/novo_anuncio`}
+          style={{ width: "100%", textDecoration: "none" }}
+        >
+          <ButtonMenu style={{ borderTopRightRadius: "30px" }}>
+            Novo Anuncio
+          </ButtonMenu>
+        </Link>
       </div>
-      <Container class="scrollbar" id="style-5">
-        <div class="force-overflow">
-          <Box>
-            <h1>Title</h1>
-            <p>
-              Less unicorn and apart and credibly yikes touched much jeez that
-              so reverent the by a as that kiwi fed wherever more aboard.
-            </p>
-          </Box>
-          <Box>
-            <h1>Title</h1>
-            <p>
-              Less unicorn and apart and credibly yikes touched much jeez that
-              so reverent the by a as that kiwi fed wherever more aboard.
-            </p>
-          </Box>
-          <Box>
-            <h1>Title</h1>
-            <p>
-              Less unicorn and apart and credibly yikes touched much jeez that
-              so reverent the by a as that kiwi fed wherever more aboard.
-            </p>
-          </Box>
-          <Box>
-            <h1>Title</h1>
-            <p>
-              Less unicorn and apart and credibly yikes touched much jeez that
-              so reverent the by a as that kiwi fed wherever more aboard.
-            </p>
-          </Box>
-          <Box>
-            <h1>Title</h1>
-            <p>
-              Less unicorn and apart and credibly yikes touched much jeez that
-              so reverent the by a as that kiwi fed wherever more aboard.
-            </p>
-          </Box>
-          <Box>
-            <h1>Title</h1>
-            <p>
-              Less unicorn and apart and credibly yikes touched much jeez that
-              so reverent the by a as that kiwi fed wherever more aboard.
-            </p>
-          </Box>
-        </div>
+      <Container className="scrollbar" id="style-5">
+        <Switch>
+          <Route path={`${path}/todos_anuncios`} component={Anuncio_sub} />
+          <Route path={`${path}/meus_anuncios`} component={Meus_Anuncios_sub} />
+          <Route path={`${path}/novo_anuncio`} component={Novo_Anuncio} />
+        </Switch>
       </Container>
     </Card>
   );

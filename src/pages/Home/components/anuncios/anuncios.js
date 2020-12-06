@@ -4,7 +4,7 @@ import { Box } from "./style";
 
 export default function Anuncios_sub() {
   return (
-    <div class="force-overflow">
+    <div className="force-overflow">
       <Box>
         <h1>Title</h1>
         <p>

@@ -7,11 +7,11 @@ export const Card = styled.div`
   width: 70%;
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
+  border-bottom-left-radius: 30px;
   border-bottom-right-radius: 30px;
-  border-bottom-right-radius: 30px;
-  box-shadow: -8px 8px 20px 5px #0020389e;
+  box-shadow: -10px 5px 20px 0px #0020389e;
   @media (max-width: 799px) {
-    box-shadow: -5px 11px 20px 5px #0020389e;
+    box-shadow: -10px 5px 20px 0px #0020389e;
     /* box-shadow: -5px 11px 20px 5px #00000085; */
   }
 `;
@@ -19,7 +19,10 @@ export const Card = styled.div`
 export const Container = styled.div`
   padding-top: 20px;
   width: 100%;
-  height: 725px;
+  @media(max-width: 799px){
+    height: 500px;
+  };
+  height: 700px;
   overflow-x: auto;
   /* display: inline-flex; */
   /* justify-content: space-evenly; */
@@ -81,7 +84,7 @@ export const ButtonMenu = styled.button`
   transition: 0.3s all ease-in-out;
   position: relative;
   outline: none !important;
-  width: 50%;
+  width: 100%;
   height: 60px;
   font-size: 18px;
   padding: 2%;

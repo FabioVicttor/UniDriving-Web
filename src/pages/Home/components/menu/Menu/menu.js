@@ -40,11 +40,14 @@ export default function Menu({ open, setOpen, url }) {
           </div>
 
           <div>
-            <Link to={`${url}/perfil`} style={{ width: "95%", textDecoration: "none" }}>
+            <Link
+              to={`${url}/perfil`}
+              style={{ width: "95%", textDecoration: "none" }}
+            >
               <ButtonMenu>
                 <span
-                  style={{ fontSize: "50px", padding: "2%" }}
-                  className="k-icon k-i-myspace title"
+                  style={{ fontSize: "40px", padding: "2%" }}
+                  className="k-icon k-i-user title"
                 ></span>
                 Perfil
               </ButtonMenu>
@@ -90,14 +93,17 @@ export default function Menu({ open, setOpen, url }) {
           </ItemMenu>
 
           <ItemMenu>
-            <Link to={`${url}/perfil`} style={{ width: "95%", textDecoration: "none" }}>
+            <Link
+              to={`${url}/perfil`}
+              style={{ width: "95%", textDecoration: "none" }}
+            >
               <ButtonMenu
                 style={{ width: "100%" }}
                 onClick={() => setOpen(false)}
               >
                 <span
                   style={{ fontSize: "40px", padding: "2%" }}
-                  className="k-icon k-i-myspace title"
+                  className="k-icon k-i-user title"
                 ></span>
                 Perfil
               </ButtonMenu>
