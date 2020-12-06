@@ -13,5 +13,5 @@ $ npm install ou $ yarn
 -> Execute o projeto:
 $ yarn start
 
--> Abra http: // localhost: 3000 para visualizá-lo no navegador.
+-> Abra http://localhost:3000 para visualizá-lo no navegador.
 ```
