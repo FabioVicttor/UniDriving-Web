@@ -12,6 +12,7 @@ import {
   DivImgLogo,
 } from "./style";
 import Icons_Exit from "../../../../../assets/icons/icon_exit";
+import Icons_Anuncio from "../../../../../assets/icons/icon_anuncio";
 
 import LogoHeader from "../../../../../assets/LogoSemFundo.png";
 import IconeLogo from "../../../../../assets/Icone_Logo.png";
@@ -35,7 +36,10 @@ export default function Menu({ open, setOpen, url }) {
               to={`${url}/anuncios`}
               style={{ width: "95%", textDecoration: "none" }}
             >
-              <ButtonMenu onClick={(e) => {}}>Anúncios</ButtonMenu>
+              <ButtonMenu>
+                <Icons_Anuncio />
+                Anúncios
+              </ButtonMenu>
             </Link>
           </div>
 
@@ -77,19 +81,10 @@ export default function Menu({ open, setOpen, url }) {
                 style={{ width: "100%" }}
                 onClick={() => setOpen(false)}
               >
+                <Icons_Anuncio />
                 Anúncios
               </ButtonMenu>
             </Link>
-          </ItemMenu>
-
-          <ItemMenu>
-            <ButtonMenu style={{ width: "95%" }} onClick={() => setOpen(false)}>
-              <span
-                style={{ fontSize: "40px", padding: "2%" }}
-                className="k-icon k-i-myspace title"
-              ></span>
-              Grupos
-            </ButtonMenu>
           </ItemMenu>
 
           <ItemMenu>
