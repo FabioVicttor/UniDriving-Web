@@ -7,11 +7,11 @@ $git clone https://github.com/FabioVicttor/UniDriving-Web.git
 -> Vá para o repositório:
 $cd UniDriving-Web
 
-->Intale as dependências:
+-> Intale as dependências:
 $ npm install ou $ yarn
 
-->Execute o projeto:
+-> Execute o projeto:
 $ yarn start
 
-->Abra http: // localhost: 3000 para visualizá-lo no navegador.
+-> Abra http://localhost:3000 para visualizá-lo no navegador.
 ```
