@@ -19,9 +19,9 @@ export const Card = styled.div`
 export const Container = styled.div`
   padding-top: 20px;
   width: 100%;
-  @media(max-width: 799px){
+  @media (max-width: 799px) {
     height: 500px;
-  };
+  }
   height: 700px;
   overflow-x: auto;
   /* display: inline-flex; */
@@ -30,15 +30,14 @@ export const Container = styled.div`
 `;
 
 export const Box = styled.div`
-  /* width: 97%; */
   background-color: white;
   transition: 0.3s all ease-in-out;
   position: relative;
   box-shadow: none;
   text-transform: none;
   display: flex;
-  flex-direction: column;
-  text-align: center;
+  /* flex-direction: column; */
+  /* text-align: center; */
   padding: 15px;
 
   h1 {

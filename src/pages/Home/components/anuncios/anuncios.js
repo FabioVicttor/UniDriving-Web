@@ -6,46 +6,18 @@ export default function Anuncios_sub() {
   return (
     <div className="force-overflow">
       <Box>
-        <h1>Title</h1>
-        <p>
-          Less unicorn and apart and credibly yikes touched much jeez that so
-          reverent the by a as that kiwi fed wherever more aboard.
-        </p>
-      </Box>
-      <Box>
-        <h1>Title</h1>
-        <p>
-          Less unicorn and apart and credibly yikes touched much jeez that so
-          reverent the by a as that kiwi fed wherever more aboard.
-        </p>
-      </Box>
-      <Box>
-        <h1>Title</h1>
-        <p>
-          Less unicorn and apart and credibly yikes touched much jeez that so
-          reverent the by a as that kiwi fed wherever more aboard.
-        </p>
-      </Box>
-      <Box>
-        <h1>Title</h1>
-        <p>
-          Less unicorn and apart and credibly yikes touched much jeez that so
-          reverent the by a as that kiwi fed wherever more aboard.
-        </p>
-      </Box>
-      <Box>
-        <h1>Title</h1>
-        <p>
-          Less unicorn and apart and credibly yikes touched much jeez that so
-          reverent the by a as that kiwi fed wherever more aboard.
-        </p>
-      </Box>
-      <Box>
-        <h1>Title</h1>
-        <p>
-          Less unicorn and apart and credibly yikes touched much jeez that so
-          reverent the by a as that kiwi fed wherever more aboard.
-        </p>
+        <div style={{ width: "25%" }}>
+          <p>Data: 06/12/2020</p>
+          <p>Usuario: Fabio</p>
+        </div>
+        <div style={{ width: "30%" }}>
+          <h1 style={{ padding: "0px" }}>Title</h1>
+          <p>Celular</p>
+        </div>
+        <div style={{ width: "45%" }}>
+          <h1 style={{ padding: "0px" }}>Destino</h1>
+          <p>Descrição: Supunhetemos que seja curta.</p>
+        </div>
       </Box>
     </div>
   );
