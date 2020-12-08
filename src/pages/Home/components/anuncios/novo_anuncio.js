@@ -4,7 +4,7 @@ import { useAuth } from "../../../../hooks/auth";
 
 import { Form, Field, FormElement } from "@progress/kendo-react-form";
 // import { Error } from "@progress/kendo-react-labels";
-import { Input, TextArea } from "@progress/kendo-react-inputs";
+import { Input } from "@progress/kendo-react-inputs";
 import { Button } from "@progress/kendo-react-buttons";
 
 import Notificacao from "../../../../components/notification";
@@ -18,19 +18,15 @@ export default function Novo_Anuncio() {
 
   const handleSubmit = async (dataItem) => {
     try {
-      // console.log(token);
-      const response = await api.post("announcements", dataItem, {
+      api.post("announcements", dataItem, {
         headers: { Authorization: `Bearer ${token}` },
       });
-
-      console.log(response);
 
       setMenssage("Anúncio Cadastrado");
       setSuccess(true);
       setTimeout(() => {
         setSuccess(false);
       }, 5000);
-      await console.log(dataItem);
     } catch (error) {
       setMenssage("Erro ao Cadastrar Anúncio");
       setError(true);
@@ -67,13 +63,12 @@ export default function Novo_Anuncio() {
                   </div>
 
                   <div style={{ marginTop: "10px" }}>
-                    <label>Descição:</label>
                     <Field
                       name={"description"}
-                      component={TextArea}
+                      component={Input}
+                      label={"Descrição:"}
                       type={"description"}
                     />
-                    {/* <TextArea name={"description"} type={"desc"} /> */}
                   </div>
                 </div>
               </fieldset>

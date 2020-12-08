@@ -1,8 +1,18 @@
 import React from "react";
+import api from "../../../../services/api";
+import { useAuth } from "../../../../hooks/auth";
 
 import { Box } from "./style";
 
 export default function Meus_Anuncios_sub() {
+  const { token } = useAuth();
+  const [anuncios,setAnuncios] = React.useState(false);
+
+  api.get("announcements", {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+
+  console.log(anuncios);
   return (
     <div>
       <div className="force-overflow">
