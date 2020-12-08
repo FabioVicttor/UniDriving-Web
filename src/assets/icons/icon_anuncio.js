@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Icon_Anuncio() {
+export default function IconAnuncio() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

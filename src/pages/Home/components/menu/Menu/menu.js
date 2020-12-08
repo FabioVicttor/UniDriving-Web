@@ -11,8 +11,8 @@ import {
   ImgLogo,
   DivImgLogo,
 } from "./style";
-import Icons_Exit from "../../../../../assets/icons/icon_exit";
-import Icons_Anuncio from "../../../../../assets/icons/icon_anuncio";
+import IconExit from "../../../../../assets/icons/icon_exit";
+import IconAnuncio from "../../../../../assets/icons/icon_anuncio";
 
 import LogoHeader from "../../../../../assets/LogoSemFundo.png";
 import IconeLogo from "../../../../../assets/Icone_Logo.png";
@@ -37,7 +37,7 @@ export default function Menu({ open, setOpen, url }) {
               style={{ width: "95%", textDecoration: "none" }}
             >
               <ButtonMenu>
-                <Icons_Anuncio />
+                <IconAnuncio />
                 Anúncios
               </ButtonMenu>
             </Link>
@@ -60,7 +60,7 @@ export default function Menu({ open, setOpen, url }) {
 
           <div>
             <ButtonMenu onClick={signOut}>
-              <Icons_Exit />
+              <IconExit />
               Sair
             </ButtonMenu>
           </div>
@@ -81,7 +81,7 @@ export default function Menu({ open, setOpen, url }) {
                 style={{ width: "100%" }}
                 onClick={() => setOpen(false)}
               >
-                <Icons_Anuncio />
+                <IconAnuncio />
                 Anúncios
               </ButtonMenu>
             </Link>
@@ -107,7 +107,7 @@ export default function Menu({ open, setOpen, url }) {
 
           <ItemMenu>
             <ButtonMenu style={{ width: "95%" }} onClick={signOut}>
-              <Icons_Exit />
+              <IconExit />
               Sair
             </ButtonMenu>
           </ItemMenu>

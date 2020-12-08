@@ -1,4 +1,6 @@
-import React, { useCallback } from "react";
+import React from "react";
+import api from "../../../../services/api";
+import { useAuth } from "../../../../hooks/auth";
 
 import { Form, Field, FormElement } from "@progress/kendo-react-form";
 // import { Error } from "@progress/kendo-react-labels";
@@ -8,12 +10,21 @@ import { Button } from "@progress/kendo-react-buttons";
 import Notificacao from "../../../../components/notification";
 
 export default function Novo_Anuncio() {
+  const { token } = useAuth();
+
   const [success, setSuccess] = React.useState(false);
   const [error, setError] = React.useState(false);
   const [menssage, setMenssage] = React.useState("Erro ao cadastrar Anúncio");
 
-  const handleSubmit = useCallback(async (dataItem) => {
+  const handleSubmit = async (dataItem) => {
     try {
+      // console.log(token);
+      const response = await api.post("announcements", dataItem, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+
+      console.log(response);
+
       setMenssage("Anúncio Cadastrado");
       setSuccess(true);
       setTimeout(() => {
@@ -27,7 +38,7 @@ export default function Novo_Anuncio() {
         setError(false);
       }, 5000);
     }
-  });
+  };
   return (
     <div>
       <div style={{ padding: "10%" }}>
@@ -39,7 +50,7 @@ export default function Novo_Anuncio() {
                 <div>
                   <div className="mb-3">
                     <Field
-                      name={"titulo"}
+                      name={"title"}
                       type={"titulo"}
                       component={Input}
                       label={"Titulo:"}
@@ -48,7 +59,7 @@ export default function Novo_Anuncio() {
 
                   <div className="mb-3" style={{ marginTop: "10px" }}>
                     <Field
-                      name={"instensino"}
+                      name={"destiny"}
                       component={Input}
                       label={"Instituição de Ensino:"}
                       type={"instensino"}
@@ -57,7 +68,12 @@ export default function Novo_Anuncio() {
 
                   <div style={{ marginTop: "10px" }}>
                     <label>Descição:</label>
-                    <Field name={"desc"} component={TextArea} type={"desc"} />
+                    <Field
+                      name={"description"}
+                      component={TextArea}
+                      type={"description"}
+                    />
+                    {/* <TextArea name={"description"} type={"desc"} /> */}
                   </div>
                 </div>
               </fieldset>

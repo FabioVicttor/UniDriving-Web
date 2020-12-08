@@ -1,11 +1,11 @@
 import React from "react";
 import { Card, ItemPerfil, LabelPerfil } from "./style";
 import { useAuth } from "../../../../hooks/auth";
-import Icon_CPF from "../../../../assets/icons/icon_cpf";
-import Icon_CNH from "../../../../assets/icons/icon_cnh";
-import Icon_Phone from "../../../../assets/icons/icon_phone";
-import Icon_Email from "../../../../assets/icons/icon_email";
-import Icon_Account from "../../../../assets/icons/icon_account";
+import IconCPF from "../../../../assets/icons/icon_cpf";
+import IconCNH from "../../../../assets/icons/icon_cnh";
+import IconPhone from "../../../../assets/icons/icon_phone";
+import IconEmail from "../../../../assets/icons/icon_email";
+import IconAccount from "../../../../assets/icons/icon_account";
 
 export default function Perfil() {
   const { user } = useAuth();
@@ -34,27 +34,27 @@ export default function Perfil() {
       </div>
       <div style={{ display: "flex", flexDirection: "column" }}>
         <ItemPerfil>
-          <Icon_Account />
+          <IconAccount />
           <LabelPerfil>Nome: </LabelPerfil>
           <h3>{user.name}</h3>
         </ItemPerfil>
         <ItemPerfil>
-          <Icon_CPF />
+          <IconCPF />
           <LabelPerfil>CPF: </LabelPerfil>
           <h3>{user.cpf}</h3>
         </ItemPerfil>
         <ItemPerfil>
-          <Icon_Email />
+          <IconEmail />
           <LabelPerfil>Email: </LabelPerfil>
           <h3>{user.email}</h3>
         </ItemPerfil>
         <ItemPerfil>
-          <Icon_CNH />
+          <IconCNH />
           <LabelPerfil>CNH: </LabelPerfil>
           <h3>{user.cnh}</h3>
         </ItemPerfil>
         <ItemPerfil>
-          <Icon_Phone />
+          <IconPhone />
           <LabelPerfil>Telefone: </LabelPerfil>
           <h3>{user.cellphone}</h3>
         </ItemPerfil>

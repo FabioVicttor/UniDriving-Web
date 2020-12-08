@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Icon_Exit() {
+export default function IconExit() {
   return (
     <svg
       className="svg"
