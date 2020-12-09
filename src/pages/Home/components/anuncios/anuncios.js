@@ -32,11 +32,11 @@ export default function Anuncios_sub() {
         <Box key={item.id}>
           <div style={{ width: "25%" }}>
             <p>{Data(item.created_at)}</p>
-            <p>Usuario: Fabio</p>
+            <p>Usuario: {item.user.name}</p>
           </div>
           <div style={{ width: "30%" }}>
             <h1 style={{ padding: "0px" }}>{item.title}</h1>
-            <p>Celular</p>
+            <p>Celular: {item.user.cellphone}</p>
           </div>
           <div style={{ width: "45%" }}>
             <h1 style={{ padding: "0px" }}>{item.destiny}</h1>
