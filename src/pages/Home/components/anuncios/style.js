@@ -122,3 +122,53 @@ export const ButtonMenu = styled.button`
     background: #2c73d26b !important;
   }
 `;
+
+export const ButtonDelete = styled.button`
+  cursor: pointer;
+  box-shadow: none !important;
+  text-transform: none;
+  border: none;
+  background-color: transparent;
+  color: #2c73d2;
+  transition: 0.3s all ease-in-out;
+  position: relative;
+  outline: none !important;
+  width: 130px;
+  height: 60px;
+  font-size: 18px;
+  padding: 2%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+
+  :hover {
+    z-index: 99;
+    background: linear-gradient(70deg, #ff4040 5%, #ff0000 95%);
+    box-shadow: 0px 0px 15px background !important;
+    color: white;
+  }
+
+  svg {
+    fill: #2c73d2;
+    transition: 0.3s all ease-in-out;
+  }
+
+  :hover svg {
+    fill: white;
+    transition: 0.3s all ease-in-out;
+  }
+
+  :active {
+    cursor: progress;
+    box-shadow: none !important;
+    color: white;
+    transition-duration: 0.3s;
+    background: radial-gradient(circle, #009efa 100%, #2c73d2 5%) !important;
+  }
+
+  :focus {
+    color: white;
+    transition-duration: 0.3s;
+    background: #2c73d26b !important;
+  }
+`;
