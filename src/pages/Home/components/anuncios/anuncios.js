@@ -14,7 +14,7 @@ export default function Anuncios_sub() {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => setAnuncios(response.data));
-  }, []);
+  }, [token]);
 
   function Data() {
     var data = new Date(),

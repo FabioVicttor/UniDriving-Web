@@ -15,7 +15,7 @@ export default function Meus_Anuncios_sub() {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => setAnuncios(response.data));
-  }, []);
+  }, [token]);
 
   function Data() {
     var data = new Date(),
@@ -38,7 +38,7 @@ export default function Meus_Anuncios_sub() {
   return (
     <div>
       <div className="force-overflow">
-        {anuncios.map((item, index) => (
+        {anuncios.map((item) => (
           <Box key={item.id}>
             <div style={{ width: "25%" }}>
               <p>{Data(item.created_at)}</p>
