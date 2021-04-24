@@ -2,12 +2,13 @@ import styled from "styled-components";
 
 export const Card = styled.div`
   margin-top: 5%;
-  background-color: white;
+  background-color: ${({ theme }) => theme.backgroundCard};
   height: 55%;
   width: 40%;
   border-radius: 30px;
   box-shadow: -10px 5px 20px 0px #0020389e;
   padding: 40px;
+  color: ${({ theme }) => theme.itemPerfil};
   @media (max-width: 799px) {
     min-height: 580px;
     /* width: 50%; */

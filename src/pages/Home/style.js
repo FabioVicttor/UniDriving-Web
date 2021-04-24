@@ -1,7 +1,9 @@
 import styled from "styled-components";
 
 export const AppBackgroundHome = styled.div`
-  background: linear-gradient(30deg, #009efa, #2c73d2, #4ffbdf);
+  background: ${({ theme }) => theme.background};
+  /* background: ${({ theme }) => (theme === true ? 'linear-gradient(147deg, #000000 0%, #2c3e50 74%)' : 'linear-gradient(30deg, #009efa, #2c73d2, #4ffbdf)' )}; */
+  /* background: linear-gradient(30deg, #009efa, #2c73d2, #4ffbdf); */
   /* background: linear-gradient(30deg, #f5f5f5, #e0e0e0, #fafafa); */
   /* background-color: white; */
   height: 100%;

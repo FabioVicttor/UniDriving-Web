@@ -5,7 +5,7 @@ export const TopMenu = styled.div`
     display: flex;
     width: 100%;
     min-height: 71px;
-    background-color: white;
+    background-color: ${({ theme }) => theme.backgroundCard};
     align-items: center;
     position: absolute;
   }
@@ -19,7 +19,7 @@ export const LeftMenu = styled.div`
     width: 50%;
     min-width: 250px;
     height: 98%;
-    background-color: white;
+    background-color: ${({ theme }) => theme.backgroundCard};
     align-items: center;
     position: absolute;
     border-bottom-right-radius: 25px;
@@ -69,7 +69,7 @@ export const ButtonMenu = styled.button`
   box-shadow: none !important;
   text-transform: none;
   border: none;
-  background-color: white;
+  background-color: ${({ theme }) => theme.backgroundCard};
   color: #2c73d2;
   transition: 0.3s all ease-in-out;
   position: relative;

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../../../../hooks/auth";
-import { bool } from "prop-types";
+import { bool, func } from "prop-types";
 import {
   TopMenu,
   LeftMenu,
@@ -13,15 +13,18 @@ import {
 } from "./style";
 import IconExit from "../../../../../assets/icons/icon_exit";
 import IconAnuncio from "../../../../../assets/icons/icon_anuncio";
+import Theme from "../../../../../assets/icons/theme";
 
 import LogoHeader from "../../../../../assets/LogoSemFundo.png";
 import IconeLogo from "../../../../../assets/Icone_Logo.png";
 
 Menu.propTypes = {
   open: bool.isRequired,
+  themes: bool.isRequired,
+  setThemes: func.isRequired,
 };
 
-export default function Menu({ open, setOpen, url }) {
+export default function Menu({ open, setOpen, url, themes, setThemes }) {
   const { signOut } = useAuth();
 
   return (
@@ -56,6 +59,12 @@ export default function Menu({ open, setOpen, url }) {
                 Perfil
               </ButtonMenu>
             </Link>
+          </div>
+
+          <div>
+            <ButtonMenu onClick={() => setThemes(!themes)}>
+              <Theme/>Tema
+            </ButtonMenu>
           </div>
 
           <div>
@@ -103,6 +112,10 @@ export default function Menu({ open, setOpen, url }) {
                 Perfil
               </ButtonMenu>
             </Link>
+          </ItemMenu>
+
+          <ItemMenu>
+            <ButtonMenu style={{ width: "95%" }} onClick={() => setThemes(!themes)}><Theme/>Tema</ButtonMenu>
           </ItemMenu>
 
           <ItemMenu>

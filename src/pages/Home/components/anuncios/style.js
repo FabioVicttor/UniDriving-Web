@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Card = styled.div`
   margin-top: 5%;
-  background-color: white;
+  background: ${({ theme }) => theme.backgroundCard};
   width: 70%;
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
@@ -26,7 +26,7 @@ export const Container = styled.div`
 `;
 
 export const Box = styled.div`
-  background-color: white;
+  background-color: ${({ theme }) => theme.backgroundCard};
   transition: 0.3s all ease-in-out;
   position: relative;
   box-shadow: none;
@@ -72,7 +72,7 @@ export const ButtonMenu = styled.button`
   box-shadow: none !important;
   text-transform: none;
   border: none;
-  background-color: white;
+  background-color: ${({ theme }) => theme.backgroundCard};
   color: #2c73d2;
   transition: 0.3s all ease-in-out;
   position: relative;
