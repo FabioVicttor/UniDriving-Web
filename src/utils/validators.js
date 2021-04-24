@@ -1,14 +1,20 @@
-const emailRegex = new RegExp(/\S+@\S+\.\S+/);
 const phoneRegex = new RegExp(/^[0-9 ()+-]+$/);
 
 export const termsValidator = (value) =>
   value ? "" : "It's required to agree with Terms and Conditions.";
-export const emailValidator = (value) =>
-  !value
-    ? "Campo E-mail é obrigatorio."
-    : emailRegex.test(value)
-    ? ""
-    : "Formato de E-mail não válido.";
+export const emailValidator = (value) => {
+  if(!value) {
+    return "Campo E-mail é obrigatorio."
+  }
+
+  const [ra, dominio] = value.split('@');
+
+  if(ra.length === 7 && dominio === 'escolas.anchieta.br') {
+    return '';
+  } else {
+    return 'Formato de E-mail não válido. Somente permitidos alunos do Anchieta'
+  }
+}
 export const nameValidator = (value) =>
   !value
     ? "Informe o nome completo."

@@ -218,8 +218,9 @@ export default function Login() {
 
 //Validação e-mail - Inicio
 const emailRegex = new RegExp(/\S+@\S+\.\S+/);
-const emailValidator = (value) =>
-  emailRegex.test(value) ? "" : "Por favor, informe um e-mail válido.";
+const emailValidator = (value) => {
+  return emailRegex.test(value) ? "" : "Por favor, informe um e-mail válido.";
+}
 const EmailInput = (fieldRenderProps) => {
   const { validationMessage, visited, ...others } = fieldRenderProps;
   return (
