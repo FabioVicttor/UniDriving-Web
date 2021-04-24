@@ -1,8 +1,7 @@
 import React from "react";
 import api from "../../../../services/api";
 import { useAuth } from "../../../../hooks/auth";
-
-import { Box } from "./style";
+import Card from './card';
 
 export default function Anuncios_sub() {
   const { token } = useAuth();
@@ -16,33 +15,10 @@ export default function Anuncios_sub() {
       .then((response) => setAnuncios(response.data));
   }, [token]);
 
-  function Data() {
-    var data = new Date(),
-      dia = data.getDate().toString(),
-      diaF = dia.length === 1 ? "0" + dia : dia,
-      mes = (data.getMonth() + 1).toString(),
-      mesF = mes.length === 1 ? "0" + mes : mes,
-      anoF = data.getFullYear();
-    return diaF + "/" + mesF + "/" + anoF;
-  }
-
   return (
     <div className="force-overflow">
       {anuncios.map((item) => (
-        <Box key={item.id}>
-          <div style={{ width: "25%" }}>
-            <p>{Data(item.created_at)}</p>
-            <p>Usuario: {item.user.name}</p>
-          </div>
-          <div style={{ width: "30%" }}>
-            <h1 style={{ padding: "0px" }}>{item.title}</h1>
-            <p>Celular: {item.user.cellphone}</p>
-          </div>
-          <div style={{ width: "45%" }}>
-            <h1 style={{ padding: "0px" }}>{item.destiny}</h1>
-            <p>Descrição: {item.description}.</p>
-          </div>
-        </Box>
+        <Card item={item} key={item.id} />
       ))}
     </div>
   );
