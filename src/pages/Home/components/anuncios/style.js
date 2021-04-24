@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const Card = styled.div`
   margin-top: 5%;
   background-color: white;
-  /* height: 75%; */
   width: 70%;
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
@@ -12,7 +11,6 @@ export const Card = styled.div`
   box-shadow: -10px 5px 20px 0px #0020389e;
   @media (max-width: 799px) {
     box-shadow: -10px 5px 20px 0px #0020389e;
-    /* box-shadow: -5px 11px 20px 5px #00000085; */
   }
 `;
 
@@ -24,8 +22,6 @@ export const Container = styled.div`
   }
   height: 700px;
   overflow-x: auto;
-  /* display: inline-flex; */
-  /* justify-content: space-evenly; */
   align-items: center;
 `;
 
@@ -36,8 +32,6 @@ export const Box = styled.div`
   box-shadow: none;
   text-transform: none;
   display: flex;
-  /* flex-direction: column; */
-  /* text-align: center; */
   padding: 15px;
 
   h1 {
@@ -144,6 +138,57 @@ export const ButtonDelete = styled.button`
   :hover {
     z-index: 99;
     background: linear-gradient(70deg, #ff4040 5%, #ff0000 95%);
+    box-shadow: 0px 0px 15px background !important;
+    color: white;
+  }
+
+  svg {
+    fill: #2c73d2;
+    transition: 0.3s all ease-in-out;
+  }
+
+  :hover svg {
+    fill: white;
+    transition: 0.3s all ease-in-out;
+  }
+
+  :active {
+    cursor: progress;
+    box-shadow: none !important;
+    color: white;
+    transition-duration: 0.3s;
+    background: radial-gradient(circle, #009efa 100%, #2c73d2 5%) !important;
+  }
+
+  :focus {
+    color: white;
+    transition-duration: 0.3s;
+    background: #2c73d26b !important;
+  }
+`;
+
+
+export const ButtonAdicar = styled.button`
+  cursor: pointer;
+  box-shadow: none !important;
+  text-transform: none;
+  border: none;
+  background-color: transparent;
+  color: #2c73d2;
+  transition: 0.3s all ease-in-out;
+  position: relative;
+  outline: none !important;
+  width: 130px;
+  height: 60px;
+  font-size: 18px;
+  padding: 2%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+
+  :hover {
+    z-index: 99;
+    background: linear-gradient(70deg, green 5%, green 95%);
     box-shadow: 0px 0px 15px background !important;
     color: white;
   }
